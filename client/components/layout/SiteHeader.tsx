@@ -8,7 +8,7 @@ const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/divisions", label: "Divisions" },
-  { to: "/news", label: "Gallery" },
+  { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -150,7 +150,7 @@ export function SiteHeader() {
         </nav>
         <div className="hidden md:block">
           <Button asChild className="group relative overflow-hidden shadow-sm bg-accent text-accent-foreground hover:bg-accent/90">
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/filkomstore?igsh=MWdzb292c2Uyanc0" target="_blank" rel="noopener noreferrer">
               <div className="flex items-center gap-2 relative z-10">
                 <ShoppingCart className="h-4 w-4" />
                 <span>Visit Store</span>

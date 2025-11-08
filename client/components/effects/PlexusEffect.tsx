@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback, useLayoutEffect } from 'react'; // FIX: Tambah useLayoutEffect
+import React, { useEffect, useRef, useState, useCallback, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface Node {
@@ -10,6 +10,9 @@ interface Node {
   connections: number[];
   pulse: number;
   pulseSpeed: number;
+  trail: Array<{ x: number; y: number; life: number }>; // FIXED: Fixed-size array for trail
+  trailIndex: number; // NEW: Circular buffer index
+  depth: number; // NEW: Simulate 3D depth
 }
 
 interface PlexusEffectProps {
@@ -23,6 +26,156 @@ interface PlexusEffectProps {
     accent: string;
   };
   debug?: boolean;
+  enableTrails?: boolean; // NEW: Toggle trails
+  enableDepth?: boolean; // NEW: Toggle 3D simulation
+}
+
+// NEW: Simple QuadTree class for optimized connection queries
+class QuadTree {
+  box: { left: number; top: number; width: number; height: number };
+  root: { children: any[]; values: any[] };
+  getBox: (value: any) => { left: number; top: number; width: number; height: number };
+  equal: (a: any, b: any) => boolean;
+  Threshold: number;
+  MaxDepth: number;
+
+  constructor(
+    box: { left: number; top: number; width: number; height: number },
+    getBox = (value: any) => ({ left: value.x, top: value.y, width: 0, height: 0 }),
+    equal = (a: any, b: any) => a === b
+  ) {
+    this.box = box;
+    this.root = { children: [null, null, null, null], values: [] };
+    this.getBox = getBox;
+    this.equal = equal;
+    this.Threshold = 16;
+    this.MaxDepth = 8;
+  }
+
+  isLeaf(node: any) {
+    return !node.children[0];
+  }
+
+  computeBox(box: any, i: number) {
+    const origin = { x: box.left, y: box.top };
+    const childSize = { x: box.width / 2, y: box.height / 2 };
+    switch (i) {
+      case 0: // NW
+        return { left: origin.x, top: origin.y, width: childSize.x, height: childSize.y };
+      case 1: // NE
+        return { left: origin.x + childSize.x, top: origin.y, width: childSize.x, height: childSize.y };
+      case 2: // SW
+        return { left: origin.x, top: origin.y + childSize.y, width: childSize.x, height: childSize.y };
+      case 3: // SE
+        return { left: origin.x + childSize.x, top: origin.y + childSize.y, width: childSize.x, height: childSize.y };
+      default:
+        throw new Error("Invalid child index");
+    }
+  }
+
+  getQuadrant(nodeBox: any, valueBox: any) {
+    const center = { x: nodeBox.left + nodeBox.width / 2, y: nodeBox.top + nodeBox.height / 2 };
+    if (valueBox.left + valueBox.width < center.x) { // West
+      if (valueBox.top + valueBox.height < center.y) return 0; // NW
+      else if (valueBox.top >= center.y) return 2; // SW
+      else return -1;
+    } else if (valueBox.left >= center.x) { // East
+      if (valueBox.top + valueBox.height < center.y) return 1; // NE
+      else if (valueBox.top >= center.y) return 3; // SE
+      else return -1;
+    } else {
+      return -1;
+    }
+  }
+
+  split(node: any, box: any) {
+    if (!this.isLeaf(node)) throw new Error("Only leaves can be split");
+    for (let i = 0; i < 4; i++) {
+      node.children[i] = { children: [null, null, null, null], values: [] };
+    }
+    const newValues: any[] = [];
+    for (const value of node.values) {
+      const i = this.getQuadrant(box, this.getBox(value));
+      if (i !== -1) {
+        node.children[i].values.push(value);
+      } else {
+        newValues.push(value);
+      }
+    }
+    node.values = newValues;
+  }
+
+  insert(value: any) {
+    this.add(this.root, 0, this.box, value);
+  }
+
+  add(node: any, depth: number, box: any, value: any) {
+    const valueBox = this.getBox(value);
+    if (!this.contains(box, valueBox)) throw new Error("Value box not contained in node box");
+
+    if (this.isLeaf(node)) {
+      if (depth >= this.MaxDepth || node.values.length < this.Threshold) {
+        node.values.push(value);
+      } else {
+        this.split(node, box);
+        this.add(node, depth, box, value); // Retry after split
+      }
+    } else {
+      const i = this.getQuadrant(box, valueBox);
+      if (i !== -1) {
+        this.add(node.children[i], depth + 1, this.computeBox(box, i), value);
+      } else {
+        node.values.push(value);
+      }
+    }
+  }
+
+  getRight(box: any) { return box.left + box.width; }
+  getBottom(box: any) { return box.top + box.height; }
+  intersects(box1: any, box2: any) {
+    return !(box1.left >= this.getRight(box2) || this.getRight(box1) <= box2.left ||
+             box1.top >= this.getBottom(box2) || this.getBottom(box1) <= box2.top);
+  }
+  contains(box: any, other: any) {
+    return box.left <= other.left && this.getRight(other) <= this.getRight(box) &&
+           box.top <= other.top && this.getBottom(other) <= this.getBottom(box);
+  }
+
+  query(box: any) {
+    const values: any[] = [];
+    this.queryNode(this.root, this.box, box, values);
+    return values;
+  }
+
+  queryNode(node: any, nodeBox: any, queryBox: any, values: any[]) {
+    if (!this.intersects(queryBox, nodeBox)) return;
+
+    for (const value of node.values) {
+      if (this.intersects(queryBox, this.getBox(value))) {
+        values.push(value);
+      }
+    }
+
+    if (!this.isLeaf(node)) {
+      for (let i = 0; i < 4; i++) {
+        const childBox = this.computeBox(nodeBox, i);
+        if (this.intersects(queryBox, childBox)) {
+          this.queryNode(node.children[i], childBox, queryBox, values);
+        }
+      }
+    }
+  }
+
+  queryRadius(center: { x: number; y: number }, radius: number) {
+    const diameter = radius * 2;
+    const queryBox = {
+      left: center.x - radius,
+      top: center.y - radius,
+      width: diameter,
+      height: diameter
+    };
+    return this.query(queryBox);
+  }
 }
 
 const PlexusEffect: React.FC<PlexusEffectProps> = ({
@@ -36,6 +189,8 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
     accent: 'rgba(230, 148, 78, 0.7)',
   },
   debug = false,
+  enableTrails = true,
+  enableDepth = true,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
@@ -47,12 +202,17 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
   const lastFrameTime = useRef<number>(0);
   const resizeTimeoutRef = useRef<NodeJS.Timeout>();
   const mouseTimeoutRef = useRef<NodeJS.Timeout>();
+  const TRAIL_LENGTH = 10; // NEW: Fixed trail length for perf
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Initialize nodes with responsive count
+  // Initialize nodes with responsive count & FIXED trail as fixed array
   const initializeNodes = useCallback(() => {
-    const responsiveNodeCount = Math.min(nodeCount, Math.floor((dimensions.width * dimensions.height) / 15000));
+    // OPTIMIZED: More aggressive node reduction for mobile
+    const baseNodeCount = isMobile ? Math.min(nodeCount * 0.4, 30) : nodeCount;
+    const responsiveNodeCount = Math.min(baseNodeCount, Math.floor((dimensions.width * dimensions.height) / (isMobile ? 25000 : 15000)));
     const newNodes: Node[] = [];
     for (let i = 0; i < responsiveNodeCount; i++) {
+      const trail = new Array(TRAIL_LENGTH).fill(null).map(() => ({ x: 0, y: 0, life: 0 }));
       newNodes.push({
         id: i,
         x: Math.random() * dimensions.width,
@@ -62,10 +222,13 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
         connections: [],
         pulse: Math.random() * Math.PI * 2,
         pulseSpeed: 0.02 + Math.random() * 0.03,
+        trail,
+        trailIndex: 0,
+        depth: Math.random(),
       });
     }
     nodesRef.current = newNodes;
-  }, [nodeCount, dimensions.width, dimensions.height, animationSpeed]);
+  }, [nodeCount, dimensions.width, dimensions.height, animationSpeed, isMobile]);
 
   // Update dimensions dengan debounce & threshold
   const updateDimensions = useCallback(() => {
@@ -73,41 +236,33 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
       const rect = canvasRef.current.getBoundingClientRect();
       const newWidth = rect.width;
       const newHeight = rect.height;
-      // Debounce: Cuma update kalau perubahan signifikan (>2px) buat hindari micro-shifts
       if (Math.abs(newWidth - dimensions.width) > 2 || Math.abs(newHeight - dimensions.height) > 2) {
         setDimensions({ width: newWidth, height: newHeight });
       }
     }
   }, [dimensions.width, dimensions.height]);
 
-  // FIX: Sync canvas attr width/height dengan dimensions (logical size) via useLayoutEffect
+  // Sync canvas attr width/height dengan dimensions via useLayoutEffect
   useLayoutEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || dimensions.width === 0 || dimensions.height === 0) return;
-
-    const dpr = window.devicePixelRatio || 1; // Hi-DPI scaling
+    // OPTIMIZED: Lower DPR for mobile devices
+    const dpr = isMobile ? Math.min(window.devicePixelRatio || 1, 1.5) : (window.devicePixelRatio || 1);
     const physicalWidth = Math.floor(dimensions.width * dpr);
     const physicalHeight = Math.floor(dimensions.height * dpr);
-
-    // Set attr untuk logical buffer (hindari stretch/distortion)
     canvas.width = physicalWidth;
     canvas.height = physicalHeight;
-
-    // Scale ctx buat crisp rendering di hi-DPI
     const ctx = canvas.getContext('2d');
     if (ctx) {
       ctx.scale(dpr, dpr);
     }
-
-    // Re-init nodes kalau dimensions berubah signifikan
     initializeNodes();
-
     if (debug) {
       console.log(`Canvas resized: logical ${dimensions.width}x${dimensions.height}, physical ${physicalWidth}x${physicalHeight}`);
     }
-  }, [dimensions, debug]); // Depend ke dimensions, trigger pas update
+  }, [dimensions, debug, initializeNodes, isMobile]);
 
-  // Throttled mouse move handler (batasi calls ke ~60fps)
+  // Throttled mouse move handler
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (canvasRef.current && mouseTimeoutRef.current) {
       clearTimeout(mouseTimeoutRef.current);
@@ -120,15 +275,16 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
           y: e.clientY - rect.top,
         });
       }
-    }, 16); // Throttle ke 16ms (~60fps)
+    }, 16);
   }, []);
 
-  // Animation loop with frame rate limiting
+  // FIXED: Optimized animation loop with QuadTree for connections & circular trail buffer
   const animate = useCallback((currentTime: number) => {
     const canvas = canvasRef.current;
     if (!canvas || !isVisible) return;
-
-    if (currentTime - lastFrameTime.current < 16) {
+    // OPTIMIZED: Lower frame rate for mobile (30fps vs 60fps)
+    const minFrameTime = isMobile ? 33 : 16;
+    if (currentTime - lastFrameTime.current < minFrameTime) {
       animationRef.current = requestAnimationFrame(animate);
       return;
     }
@@ -136,128 +292,170 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-
-    // Clear canvas (sekarang sync dengan buffer size)
     ctx.clearRect(0, 0, dimensions.width, dimensions.height);
 
-    // Update nodes dengan clamp ketat untuk hindari overflow ke atas/bawah
+    // OPTIMIZED: Reduced connection distance for mobile
+    const effectiveConnectionDistance = isMobile ? connectionDistance * 0.7 : connectionDistance;
+    // OPTIMIZED: Disable trails and depth on mobile
+    const useTrails = enableTrails && !isMobile;
+    const useDepth = enableDepth && !isMobile;
+
+    // Update nodes
     nodesRef.current.forEach(node => {
       let newX = node.x + node.vx;
       let newY = node.y + node.vy;
-
-      // Bounce off edges dengan clamp ketat
       if (newX <= 0 || newX >= dimensions.width) {
-        node.vx *= -0.8; // Kurangi velocity biar bounce lebih soft, gak loncat jauh
+        node.vx *= -0.8;
         newX = Math.max(0, Math.min(dimensions.width, newX));
       }
       if (newY <= 0 || newY >= dimensions.height) {
-        node.vy *= -0.8; // Sama untuk y-axis
+        node.vy *= -0.8;
         newY = Math.max(0, Math.min(dimensions.height, newY));
       }
-
-      // Mouse attraction (parallax effect) - batasi force ke atas kalau deket edge
       const dx = mouse.x - newX;
       const dy = mouse.y - newY;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      
       if (distance < 150 && distance > 0) {
         const force = (150 - distance) / 150;
-        // Tambah check: kurangi force kalau node deket top edge
-        const edgeDampen = newY < 50 ? 0.5 : 1; // Dampen kalau terlalu deket atas
+        const edgeDampen = newY < 50 ? 0.5 : 1;
         node.vx += (dx / distance) * force * 0.01 * edgeDampen;
         node.vy += (dy / distance) * force * 0.01 * edgeDampen;
       }
-
-      // Limit velocity
       const maxVelocity = 2;
       const velocity = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
       if (velocity > maxVelocity) {
         node.vx = (node.vx / velocity) * maxVelocity;
         node.vy = (node.vy / velocity) * maxVelocity;
       }
-
-      // Update node properties
       node.x = newX;
       node.y = newY;
       node.pulse += node.pulseSpeed;
 
-      // Debug log (optional)
-      if (debug && node.id === 0) { // Log cuma satu node buat sample
+      // FIXED: Circular buffer for trails - no push/shift/filter
+      if (useTrails) {
+        node.trail[node.trailIndex] = { x: newX, y: newY, life: 1 };
+        node.trailIndex = (node.trailIndex + 1) % TRAIL_LENGTH;
+        // Decrement all lives
+        for (let j = 0; j < TRAIL_LENGTH; j++) {
+          if (node.trail[j].life > 0) {
+            node.trail[j].life = Math.max(0, node.trail[j].life - 0.1);
+          }
+        }
+      }
+
+      if (debug && node.id === 0) {
         console.log(`Node 0: y=${node.y.toFixed(2)}, vy=${node.vy.toFixed(2)}`);
       }
     });
 
-    // Draw connections - skip kalau node di luar bounds (hindari garis panjang)
+    // Draw trails (batched)
+    if (useTrails) {
+      ctx.globalAlpha = 0.3;
+      ctx.lineWidth = 1;
+      nodesRef.current.forEach(node => {
+        let startIdx = node.trailIndex;
+        let activeCount = 0;
+        for (let j = 0; j < TRAIL_LENGTH; j++) {
+          if (node.trail[(startIdx + j) % TRAIL_LENGTH]?.life > 0) activeCount++;
+          else break;
+        }
+        if (activeCount > 1) {
+          const gradient = ctx.createLinearGradient(
+            node.trail[startIdx % TRAIL_LENGTH].x, node.trail[startIdx % TRAIL_LENGTH].y,
+            node.trail[(startIdx + activeCount - 1) % TRAIL_LENGTH].x, node.trail[(startIdx + activeCount - 1) % TRAIL_LENGTH].y
+          );
+          gradient.addColorStop(0, 'transparent');
+          gradient.addColorStop(1, colors.primary);
+          ctx.strokeStyle = gradient;
+          ctx.beginPath();
+          let first = true;
+          for (let j = 0; j < activeCount; j++) {
+            const idx = (startIdx + j) % TRAIL_LENGTH;
+            const point = node.trail[idx];
+            ctx.globalAlpha = point.life * 0.5;
+            if (first) {
+              ctx.moveTo(point.x, point.y);
+              first = false;
+            } else {
+              ctx.lineTo(point.x, point.y);
+            }
+          }
+          ctx.stroke();
+        }
+      });
+    }
+
+    // NEW: Optimized connections with QuadTree
+    const quadTree = new QuadTree(
+      { left: 0, top: 0, width: dimensions.width, height: dimensions.height },
+      (pt: { x: number; y: number; id: number }) => ({ left: pt.x, top: pt.y, width: 0, height: 0 })
+    );
+    nodesRef.current.forEach(node => {
+      quadTree.insert({ x: node.x, y: node.y, id: node.id });
+    });
+
     ctx.globalAlpha = 0.6;
     nodesRef.current.forEach((node, i) => {
-      nodesRef.current.slice(i + 1).forEach(otherNode => {
-        // Check bounds: skip kalau salah satu node di luar visible area
-        if (node.y < -10 || node.y > dimensions.height + 10 || 
-            otherNode.y < -10 || otherNode.y > dimensions.height + 10) {
-          return;
-        }
-
-        const dx = node.x - otherNode.x;
-        const dy = node.y - otherNode.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < connectionDistance) {
-          const opacity = 1 - (distance / connectionDistance);
+      const candidates = quadTree.queryRadius({ x: node.x, y: node.y }, effectiveConnectionDistance);
+      candidates.forEach((candidate: { x: number; y: number; id: number }) => {
+        if (candidate.id <= node.id) return; // Avoid duplicates
+        const dx = node.x - candidate.x;
+        const dy = node.y - candidate.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < effectiveConnectionDistance && dist > 0) {
+          const opacity = 1 - (dist / effectiveConnectionDistance);
           ctx.globalAlpha = opacity * 0.6;
-          
-          // Gradient effect based on distance
-          const gradient = ctx.createLinearGradient(node.x, node.y, otherNode.x, otherNode.y);
+          const gradient = ctx.createLinearGradient(node.x, node.y, candidate.x, candidate.y);
           gradient.addColorStop(0, colors.primary);
           gradient.addColorStop(0.5, colors.accent);
           gradient.addColorStop(1, colors.secondary);
-          
           ctx.strokeStyle = gradient;
           ctx.lineWidth = opacity * 2;
-          
           ctx.beginPath();
           ctx.moveTo(node.x, node.y);
-          ctx.lineTo(otherNode.x, otherNode.y);
+          ctx.lineTo(candidate.x, candidate.y);
           ctx.stroke();
         }
       });
     });
 
+    // Draw nodes (batched)
     nodesRef.current.forEach(node => {
-      const pulseSize = 3 + Math.sin(node.pulse) * 2;
+      const pulseSize = (3 + Math.sin(node.pulse) * 2) * (useDepth ? (0.5 + node.depth * 0.5) : 1);
       const pulseOpacity = 0.7 + Math.sin(node.pulse) * 0.3;
-
-      // Node glow
-      const gradient = ctx.createRadialGradient(
-        node.x, node.y, 0,
-        node.x, node.y, pulseSize * 3
-      );
-      gradient.addColorStop(0, colors.primary);
-      gradient.addColorStop(0.5, colors.secondary);
-      gradient.addColorStop(1, 'transparent');
-
+      // Glow
       ctx.globalAlpha = pulseOpacity * 0.3;
-      ctx.fillStyle = gradient;
+      const glowGradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, pulseSize * 3);
+      glowGradient.addColorStop(0, colors.primary);
+      glowGradient.addColorStop(0.5, colors.secondary);
+      glowGradient.addColorStop(1, 'transparent');
+      ctx.fillStyle = glowGradient;
       ctx.beginPath();
       ctx.arc(node.x, node.y, pulseSize * 3, 0, Math.PI * 2);
       ctx.fill();
-
-      // Main node
+      // Main
       ctx.globalAlpha = pulseOpacity;
       ctx.fillStyle = colors.primary;
       ctx.beginPath();
       ctx.arc(node.x, node.y, pulseSize, 0, Math.PI * 2);
       ctx.fill();
-
-      // Node highlight
+      // Highlight
       ctx.globalAlpha = pulseOpacity * 0.8;
       ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+      const highlightOffset = useDepth ? node.depth * 2 : 1;
       ctx.beginPath();
-      ctx.arc(node.x - pulseSize * 0.3, node.y - pulseSize * 0.3, pulseSize * 0.4, 0, Math.PI * 2);
+      ctx.arc(
+        node.x - pulseSize * highlightOffset * 0.3,
+        node.y - pulseSize * highlightOffset * 0.3,
+        pulseSize * 0.4,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
     });
 
     animationRef.current = requestAnimationFrame(animate);
-  }, [dimensions, mouse, connectionDistance, colors, isVisible, isReducedMotion, debug]);
+  }, [dimensions, mouse, connectionDistance, colors, isVisible, isReducedMotion, debug, enableTrails, enableDepth, initializeNodes, isMobile]);
 
   // Intersection observer for performance
   useEffect(() => {
@@ -267,33 +465,35 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
       },
       { threshold: 0.1 }
     );
-
     if (canvasRef.current) {
       observer.observe(canvasRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
-  // Setup dengan ResizeObserver (bukan window.resize) & cleanup timeouts
+  // Setup dengan ResizeObserver & cleanup
   useEffect(() => {
+    // OPTIMIZED: Mobile detection
+    const detectMobile = () => {
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 768;
+      const isLowEndDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+      return isTouchDevice || isSmallScreen || isLowEndDevice;
+    };
+    setIsMobile(detectMobile());
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     setIsReducedMotion(prefersReducedMotion);
-
-    // Initial call
     updateDimensions();
     initializeNodes();
-
     const resizeObserver = new ResizeObserver(() => {
       if (resizeTimeoutRef.current) clearTimeout(resizeTimeoutRef.current);
-      resizeTimeoutRef.current = setTimeout(updateDimensions, 100); // Debounce 100ms
+      resizeTimeoutRef.current = setTimeout(updateDimensions, 100);
     });
     if (canvasRef.current) {
       resizeObserver.observe(canvasRef.current);
     }
-
     window.addEventListener('mousemove', handleMouseMove);
-
     return () => {
       if (canvasRef.current) resizeObserver.unobserve(canvasRef.current);
       resizeObserver.disconnect();
@@ -306,12 +506,11 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
     };
   }, [updateDimensions, initializeNodes, handleMouseMove]);
 
-  // Start animation when visible and not reduced motion
+  // Start animation
   useEffect(() => {
     if (isVisible && nodesRef.current.length > 0 && !isReducedMotion) {
       animationRef.current = requestAnimationFrame(animate);
     }
-
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -319,7 +518,6 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
     };
   }, [isVisible, animate, isReducedMotion]);
 
-  // Don't render if reduced motion is preferred
   if (isReducedMotion) {
     return (
       <div className={`fixed inset-0 pointer-events-none z-0 ${className}`}>
@@ -338,16 +536,13 @@ const PlexusEffect: React.FC<PlexusEffectProps> = ({
     >
       <canvas
         ref={canvasRef}
-        // FIX: Hapus attr width/height (handle di useLayoutEffect); style tetep buat display
-        style={{ 
+        style={{
           background: 'transparent',
           width: '100%',
           height: '100%',
         }}
         aria-hidden="true"
       />
-      
-      {/* Additional overlay effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-blue-900/5" />
       <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-transparent to-cyan-900/5" />
     </motion.div>
