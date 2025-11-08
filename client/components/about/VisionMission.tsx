@@ -24,8 +24,8 @@ export default function VisionMissionAbout({ className }: VisionMissionAboutProp
       name: "Dr. Ir. H. Himmatul Miftah, M.Si., MPM",
       position: "Dekan Fakultas Ilmu Komputer",
       image: "/assets/about/dekan-filkom.jpeg",
-      quote: "FILKOM UNIDA adalah tempat penuh potensi tak terbatas—kami tekankan pendidikan ilmu komputer di dunia yang terhubung teknologi, untuk ciptakan lulusan unggul yang bersatu dalam Tauhid dan standar internasional.",
-      description: "Sejak resmi berdiri 2023, FILKOM kelola S1 Ilmu Komputer dengan amanah visi: bangun fakultas unggul yang edukasi bangsa via tech inovatif. Dengan kepercayaan masyarakat yang melonjak, kami siap tambah prodi baru—mari wujudkan kemajuan bersama!",
+      quote: "FILKOM UNIDA merupakan institusi akademik yang berperan sebagai wadah pengembangan sumber daya manusia di bidang Teknologi Informasi dan Komunikasi (TIK) yang berdaya saing global. Fakultas ini menekankan integrasi antara ilmu pengetahuan, keimanan, dan teknologi dalam proses pendidikan untuk menghasilkan lulusan unggul yang berlandaskan Tauhid serta memiliki kompetensi berstandar internasional.",
+      description: "Sejak berdiri pada tahun 2023, FILKOM UNIDA terus beradaptasi terhadap perkembangan TIK global melalui penguatan kurikulum, inovasi, dan riset terapan. Dengan kepercayaan masyarakat yang terus tumbuh, FILKOM berkomitmen meningkatkan mutu akademik dan kemitraan internasional untuk melahirkan insan TIK berkarakter dan berlandaskan Tauhid.",
     },
     // Slide 2: Wakil Dekan
     {

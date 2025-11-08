@@ -1,0 +1,34 @@
+services:
+  # Production Web Service
+  - type: web
+    name: bem-filkom-website
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+
+    # Environment Variables
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: EMAIL_USER
+        value: bem.filkom@unida.ac.id
+      - key: EMAIL_PASS
+        sync: false # Set manually in Render dashboard
+
+    # Auto-deploy from GitHub
+    repo: https://github.com/bemfilkom-unida/bemfilkom-app.git
+    rootDir: .
+    branch: main
+
+    # Build configuration
+    buildFilter:
+      paths:
+        - package.json
+        - package-lock.json
+        - client/**
+        - server/**
+        - shared/**
+        - vite.config.*
+        - tsconfig.*
