@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "npm run build:client",
+        "outputDirectory": "dist/spa"
+      }
+    },
+    {
+      "src": "api/**/*.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/spa/$1"
+    }
+  ],
+  "env": {
+    "EMAIL_USER": "bem.filkom@unida.ac.id",
+    "NODE_ENV": "production"
+  }
+}
