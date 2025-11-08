@@ -44,22 +44,29 @@ export default function Contact() {
     try {
       setSubmitting(true);
       setStatus(null);
-      const resp = await fetch(`/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, subject, message }),
+
+      // Submit directly to Formspree
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('subject', subject);
+      formData.append('message', message);
+
+      const resp = await fetch('https://formspree.io/f/xovyajng', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
       });
 
       if (!resp.ok) {
-        const errorMsg =
-          resp.status >= 500
-            ? "Server error. Please try again later."
-            : "Failed to send. Please check your input.";
-        throw new Error(errorMsg);
+        const errorData = await resp.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to send message. Please try again.');
       }
 
       form.reset();
-      setStatus("Your message has been sent. Thank you!");
+      setStatus("✅ Your message has been sent successfully! We'll get back to you soon.");
     } catch (err) {
       setStatus(
         err instanceof Error ? err.message : "Failed to send. Please try again later.",

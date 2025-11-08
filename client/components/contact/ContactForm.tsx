@@ -19,7 +19,8 @@ interface ContactFormProps {
 
 export default function ContactForm({ onSubmit, submitting, status }: ContactFormProps) {
   const getStatusClass = (message: string) => {
-    if (message.includes("Failed") || message.includes("Please")) return "text-destructive";
+    if (message.includes("Failed") || message.includes("Please") || message.includes("Error")) return "text-destructive";
+    if (message.includes("✅")) return "text-green-600 font-semibold";
     return "text-green-600";
   };
 
