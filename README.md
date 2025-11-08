@@ -1,14 +1,14 @@
-# BEM FILKOM UNIDA - Website Resmi
+# BEM FILKOM UNIDA - Official Website
 
-Website resmi Badan Eksekutif Mahasiswa Fakultas Ilmu Komputer Universitas Djuanda dengan Kabinet Neogenesis.
+Official website of the Executive Board of Students, Faculty of Computer Science, Universitas Djuanda, with the Neogenesis Cabinet.
 
 ![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-7.1-F7B84B?style=for-the-badge&logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.23-0055FF?style=for-the-badge&logo=framer&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-6.30-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Radix UI](https://img.shields.io/badge/Radix_UI-1.x-000000?style=for-the-badge&logo=radix-ui&logoColor=white) ![Express.js](https://img.shields.io/badge/Express.js-5.1-404D59?style=for-the-badge&logo=express&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-20+-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Nodemailer](https://img.shields.io/badge/Nodemailer-7.0-00D4AA?style=for-the-badge&logo=nodemailer&logoColor=white) ![CORS](https://img.shields.io/badge/CORS-2.8-4A90E2?style=for-the-badge&logo=cors&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-3.6-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) ![ESLint](https://img.shields.io/badge/ESLint-8.x-4B3263?style=for-the-badge&logo=eslint&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-3.2-FFD700?style=for-the-badge&logo=vitest&logoColor=black) ![PostCSS](https://img.shields.io/badge/PostCSS-8.5-DC3C00?style=for-the-badge&logo=postcss&logoColor=white) ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-## Fitur Utama
-- **Visual Effects**: Plexus/particles dengan tsParticles, cursor glow, animasi reveal dengan Framer Motion, glass morphism.
-- **Responsive Design**: Adaptif untuk semua layar, mobile-first, touch-friendly dengan Embla Carousel.
-- **UI/UX**: Desain clean minimalis, animasi smooth, hover effects, dark/light themes (Next Themes), aksesibilitas, toast notifications (Sonner).
-- **Teknis**: SSR dengan Vite, TypeScript, Tailwind CSS, React Router, form validation (Zod + React Hook Form), email (@emailjs/browser + Nodemailer), data fetching (React Query), icons (Lucide React).
+## Main Features
+- **Visual Effects**: Particles with tsParticles, cursor glow, reveal animations with Framer Motion, glass morphism.
+- **Responsive Design**: Adaptive for all screens, mobile-first, touch-friendly with Embla Carousel.
+- **UI/UX**: Clean minimalist design, smooth animations, hover effects, dark/light themes (Next Themes), accessibility, toast notifications (Sonner).
+- **Technical**: SSR with Vite, TypeScript, Tailwind CSS, React Router, form validation (Zod + React Hook Form), email (@emailjs/browser + Nodemailer), data fetching (React Query), icons (Lucide React).
 
 ## Tech Stack
 ### Frontend
@@ -16,9 +16,9 @@ Website resmi Badan Eksekutif Mahasiswa Fakultas Ilmu Komputer Universitas Djuan
 - TypeScript 5.9: Type Safety
 - Vite 7.1: Build Tool
 - Tailwind CSS 3.4 + Animate: Styling
-- Framer Motion 12.23: Animasi
+- Framer Motion 12.23: Animations
 - React Router DOM 6.30: Routing
-- Radix UI 1.x: Komponen UI (Dialog, Tabs, Toast, Tooltip, dll.)
+- Radix UI 1.x: UI Components (Dialog, Tabs, Toast, Tooltip, etc.)
 - tsParticles 2.12: Particles Effects
 - React Query 5.84: Data Fetching
 - React Hook Form 7.62 + Zod 3.25: Forms & Validation
@@ -50,31 +50,31 @@ Website resmi Badan Eksekutif Mahasiswa Fakultas Ilmu Komputer Universitas Djuan
 - date-fns 4.1: Date Utils
 - react-day-picker 9.8: Date Picker
 
-## Struktur Proyek
+## Project Structure
 ```
 bem-filkom-unida-website/
-├── client/          # Frontend (jika terpisah, tapi sebenarnya monorepo dengan Vite)
-│   ├── components/  # Komponen reusable (Radix, UI, Effects)
-│   ├── pages/       # Halaman
+├── client/          # Frontend (monorepo with Vite)
+│   ├── components/  # Reusable components (Radix, UI, Effects)
+│   ├── pages/       # Pages
 │   ├── hooks/       # Custom hooks (Query, Intersection)
 │   ├── lib/         # Utilities (Utils, Validation)
-│   └── global.css   # Styles global (Tailwind)
+│   └── global.css   # Global styles (Tailwind)
 ├── server/          # Backend (Vite build)
 │   ├── routes/      # API routes (Express)
-│   └── lib/         # Utilities server (Email, Env)
-├── public/          # Assets statis
-├── shared/          # Kode bersama (jika ada)
-├── vite.config.ts  # Vite config utama
+│   └── lib/         # Server utilities (Email, Env)
+├── public/          # Static assets
+├── shared/          # Shared code (if any)
+├── vite.config.ts  # Main Vite config
 ├── vite.config.server.ts # Server config
-└── dist/            # Build output (spa/ untuk client, server/ untuk backend)
+└── dist/            # Build output (spa/ for client, server/ for backend)
 ```
 
-## Instalasi & Setup
-### Persyaratan
+## Installation & Setup
+### Requirements
 - Node.js 20+
 - pnpm 10.14 (recommended)
 
-### Langkah
+### Steps
 1. Clone repo:
    ```bash
    git clone <repository-url>
@@ -84,10 +84,10 @@ bem-filkom-unida-website/
 2. Install dependencies:
    ```bash
    pnpm install
-   # Atau npm install
+   # Or npm install
    ```
 
-3. Setup `.env` di root:
+3. Setup `.env` in root:
    ```env
    EMAIL_HOST=smtp.gmail.com
    EMAIL_PORT=587
@@ -97,13 +97,13 @@ bem-filkom-unida-website/
    EMAIL_TO=admin@bemfilkom.com
    PORT=3000
    NODE_ENV=development
-   # Tambah jika perlu: VITE_API_URL, EMAILJS_SERVICE_ID, dll.
+   # Add if needed: VITE_API_URL, EMAILJS_SERVICE_ID, etc.
    ```
 
-4. Jalankan dev server:
+4. Run dev server:
    ```bash
    pnpm dev
-   # Atau npm run dev
+   # Or npm run dev
    ```
 
 5. Build production:
@@ -112,16 +112,16 @@ bem-filkom-unida-website/
    pnpm start
    ```
 
-## Halaman & Fitur
-- **Homepage**: Hero dengan foto kabinet, particles background, timeline program (Embla), info beasiswa, visi-misi.
-- **About**: Kata pengantar, profil ketua (dengan tabs Radix), sejarah BEM.
-- **Divisions**: Info divisi dengan cards animasi, profil (accordion/drawer Vaul).
-- **Gallery**: Galeri foto kegiatan (carousel Embla), dokumentasi, integrasi media sosial.
-- **Contact**: Form kontak dengan validasi (React Hook Form + Zod), email integration, date picker jika perlu.
+## Pages & Features
+- **Homepage**: Hero with cabinet photo, particles background, program timeline (Embla), scholarship info, vision-mission.
+- **About**: Dean's message, chairman profile (Radix tabs), BEM history.
+- **Divisions**: Division info with animated cards, profiles (Vaul accordion/drawer).
+- **Gallery**: Event photo gallery (Embla carousel), documentation, social media integration.
+- **Contact**: Contact form with validation (React Hook Form + Zod), email integration, date picker if needed.
 
 ## Customization
-### Warna & Themes
-Ubah di `global.css` atau Tailwind config:
+### Colors & Themes
+Edit in `global.css` or Tailwind config:
 ```css
 :root {
   --primary: 190 58% 58%;    /* Cyan */
@@ -130,10 +130,10 @@ Ubah di `global.css` atau Tailwind config:
   --background: 200 48% 24%; /* Dark Blue */
 }
 ```
-Gunakan Next Themes untuk switch dark/light.
+Use Next Themes for dark/light switching.
 
 ### Particles Effect (tsParticles)
-Di komponen effects (misal Index.tsx):
+In effects component (e.g., Index.tsx):
 ```tsx
 <Particles
   id="tsparticles"
@@ -171,39 +171,39 @@ pnpm typecheck    # Type check (tsc)
 ### Netlify
 - Build: `pnpm build`
 - Publish: `dist/spa`
-- Set env vars di dashboard.
+- Set env vars in dashboard.
 
 ### Vercel
 - Framework: Vite
 - Build: `pnpm build`
 - Output: `dist/spa`
-- Serverless: Gunakan serverless-http untuk API.
+- Serverless: Use serverless-http for API.
 
 ### Manual/Serverless
 - Build: `pnpm build`
 - Upload `dist/`
 - `pnpm install --prod`
 - Start: `pnpm start`
-- Dukung serverless dengan serverless-http.
+- Supports serverless with serverless-http.
 
 ## Troubleshooting
-- **Email gagal**: Gunakan App Password Gmail, cek `.env` dan EmailJS keys.
-- **Build error**: Hapus `node_modules` dan `dist`, `pnpm install`.
-- **Particles hilang**: Cek console, import tsParticles benar, pastikan canvas visible.
-- **Performance lambat**: Kurangi particles number, gunakan React Query caching, reduced motion.
-- **Type errors**: Jalankan `pnpm typecheck`, update @types.
+- **Email failure**: Use Gmail App Password, check `.env` and EmailJS keys.
+- **Build error**: Delete `node_modules` and `dist`, run `pnpm install`.
+- **Particles missing**: Check console, ensure tsParticles import is correct, canvas visible.
+- **Slow performance**: Reduce particles number, use React Query caching, enable reduced motion.
+- **Type errors**: Run `pnpm typecheck`, update @types.
 
 ## Contributing
 1. Fork repo.
-2. Buat branch: `git checkout -b feature/nama`.
-3. Commit: `git commit -m 'Deskripsi'`.
-4. Push: `git push origin feature/nama`.
-5. Buat PR.
+2. Create branch: `git checkout -b feature/name`.
+3. Commit: `git commit -m 'Description'`.
+4. Push: `git push origin feature/name`.
+5. Open PR.
 
 ## License
-MIT License - lihat [LICENSE](LICENSE).
+MIT License - see [LICENSE](LICENSE).
 
-## Tim Development
+## Development Team
 - Frontend: React, TypeScript, Tailwind, Radix, Framer.
 - Backend: Express 5, Node, Nodemailer, EmailJS.
 - UI/UX: Glass morphism, themes, animations.
@@ -215,4 +215,4 @@ MIT License - lihat [LICENSE](LICENSE).
 
 ---
 
-**BEM FILKOM UNIDA** - Menumbuhkan Generasi Baru, Mewujudkan Inovasi Nyata.
+**BEM FILKOM UNIDA** - Nurturing a New Generation, Realizing True Innovation.
