@@ -9,17 +9,32 @@ const port = process.env.PORT || 3000;
 const __dirname = import.meta.dirname;
 const distPath = path.join(__dirname, "../spa");
 
-// Serve static files
+// Serve static files from multiple possible locations
 app.use(express.static(distPath));
+app.use(express.static(path.join(__dirname, "../spa/assets")));
+
+// Add health check endpoint
+app.get("/health", (_req, res) => {
+  res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
 
 // Handle React Router - serve index.html for all non-API routes
-app.get("*", (req, res) => {
+app.use((req, res, next) => {
   // Don't serve index.html for API routes
   if (req.path.startsWith("/api/") || req.path.startsWith("/health")) {
-    return res.status(404).json({ error: "API endpoint not found" });
+    return next();
   }
 
-  res.sendFile(path.join(distPath, "index.html"));
+  // Skip if it's a static file request
+  if (req.path.includes(".")) {
+    return next();
+  }
+
+  const indexPath = path.join(distPath, "index.html");
+  console.log(`Serving index.html from: ${indexPath} for path: ${req.path}`);
+
+  // Serve index.html for all other routes
+  res.sendFile(indexPath);
 });
 
 app.listen(port, () => {
