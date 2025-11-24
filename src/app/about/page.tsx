@@ -8,7 +8,7 @@ import {
 } from '@/components/about';
 
 export const metadata = {
-  title: "Tentang Kami - BEM FILKOM UNIDA",
+  title: "BEM FILKOM UNIDA",
   description: "Informasi tentang BEM FILKOM UNIDA dan Kabinet Neogenesis",
 };
 
