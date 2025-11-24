@@ -3,7 +3,6 @@ import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
-  content: ["./client/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
   	container: {
@@ -89,4 +88,11 @@ export default {
   	}
   },
   plugins: [tailwindcssAnimate],
+  // Tailwind CSS v3 content configuration
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
 } satisfies Config;

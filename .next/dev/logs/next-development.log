@@ -1,0 +1,119 @@
+[00:00:01.213] Server  LOG      ✓ Ready in 861ms
+[00:00:05.423] Server  LOG      ○ Compiling / ...
+[00:00:08.373] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:09.168] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:02:15.287] Server  LOG      ✓ Compiled in 453ms
+[00:02:15.403] Browser ERROR   ./src/app/layout.tsx:18:1
+Export default doesn't exist in target module
+  16 | };
+  17 |
+> 18 | import SiteHeader from "@/components/layout/SiteHeader";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  19 |
+  20 | export default function RootLayout({
+  21 |   children,
+
+The export default was not found in module [project]/src/components/layout/SiteHeader.tsx [app-rsc] (ecmascript).
+The module has no exports at all.
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+[00:02:41.451] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:41.792] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:06:15.239] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:06:32.694] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:33.061] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:09:11.279] Server  LOG      ✓ Compiled in 282ms
+[00:09:56.704] Server  LOG      ✓ Compiled in 493ms
+[00:10:00.555] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:00.900] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:10:07.045] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:11:37.512] Server  LOG      ✓ Compiled in 319ms
+[00:11:39.373] Server  LOG      ✓ Compiled in 475ms
+[00:12:49.581] Server  LOG      ✓ Compiled in 223ms
+[00:13:03.942] Server  LOG      ✓ Compiled in 246ms
+[00:13:11.988] Server  LOG      ✓ Compiled in 196ms
+[00:18:06.023] Server  LOG      ✓ Compiled in 329ms
+[00:18:06.822] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:07.671] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:18:24.790] Server  LOG      ✓ Compiled in 698ms
+[00:18:44.573] Server  LOG      ✓ Compiled in 219ms
+[00:18:47.812] Server  LOG      ✓ Compiled in 169ms
+[00:23:46.598] Server  LOG      ✓ Compiled in 260ms
+[00:24:12.443] Server  LOG      ✓ Compiled in 248ms
+[00:25:41.049] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:41.402] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:25:50.340] Server  LOG      ✓ Compiled in 341ms
+[00:25:52.403] Server  LOG      ✓ Compiled in 352ms
+[00:29:42.237] Server  LOG      ✓ Compiled in 224ms
+[00:30:32.442] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:32:57.542] Server  LOG      ✓ Compiled in 240ms
+[00:33:16.600] Server  LOG      ✓ Compiled in 233ms
+[00:34:16.010] Server  LOG      ✓ Compiled in 218ms
+[00:38:23.817] Server  LOG      ✓ Compiled in 211ms
+[00:40:02.354] Server  LOG      ✓ Compiled in 235ms
+[00:40:34.874] Server  LOG      ✓ Compiled in 320ms
+[00:40:42.981] Server  LOG      ✓ Compiled in 372ms
+[00:41:52.695] Server  LOG      ✓ Compiled in 196ms
+[00:43:07.125] Server  LOG      ✓ Compiled in 201ms
+[00:43:50.487] Server  LOG      ✓ Compiled in 249ms
+[00:44:12.246] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:44:12.662] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:46:25.393] Server  LOG      ✓ Compiled in 298ms
+[00:46:37.652] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:46:37.992] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:47:27.029] Server  LOG      ✓ Compiled in 299ms
+[00:48:40.536] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:40.821] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:48:54.682] Server  LOG      ✓ Compiled in 377ms
+[00:49:00.817] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:49:01.393] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:51:06.269] Server  LOG      ✓ Compiled in 203ms
+[00:52:13.870] Server  LOG      ✓ Compiled in 455ms
+[00:52:18.064] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:52:18.723] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:53:47.650] Server  LOG      ✓ Compiled in 161ms
+[00:56:16.595] Server  LOG      ✓ Compiled in 644ms
+[00:56:52.765] Server  LOG      ✓ Compiled in 381ms
+[00:56:57.686] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:56:58.485] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:58:33.429] Server  LOG      ✓ Compiled in 158ms
+[01:01:30.970] Server  LOG      ✓ Compiled in 230ms
+[01:03:14.486] Server  LOG      ✓ Compiled in 208ms
+[01:03:51.023] Server  LOG      ✓ Compiled in 615ms
+[01:05:45.969] Server  LOG      ✓ Compiled in 264ms
+[01:11:28.522] Server  LOG      ✓ Compiled in 518ms
+[01:11:44.770] Server  LOG      ✓ Compiled in 303ms
+[01:12:25.908] Server  LOG      ✓ Compiled in 218ms
+[01:13:14.487] Server  LOG      ✓ Compiled in 187ms
+[01:13:32.776] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:13:33.510] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:13:38.189] Server  LOG      ✓ Compiled in 670ms
+[01:14:20.116] Server  LOG      ✓ Compiled in 190ms
+[01:14:25.756] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:14:26.233] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:14:40.730] Server  LOG      ✓ Compiled in 446ms
+[01:14:57.363] Server  LOG      ✓ Compiled in 211ms
+[01:15:18.410] Server  LOG      ✓ Compiled in 210ms
+[01:15:36.493] Server  LOG      ✓ Compiled in 150ms
+[01:15:59.461] Server  LOG      ✓ Compiled in 205ms
+[01:17:07.693] Server  LOG      ✓ Compiled in 213ms
+[01:17:23.818] Server  LOG      ✓ Compiled in 219ms
+[01:18:15.735] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:18:16.020] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:18:55.232] Server  LOG      ✓ Compiled in 161ms
+[01:19:34.778] Server  LOG      ✓ Compiled in 430ms
+[01:19:48.436] Server  LOG      ✓ Compiled in 619ms
+[01:20:00.824] Server  LOG      ✓ Compiled in 429ms
+[01:20:12.349] Server  LOG      ✓ Compiled in 594ms
+[01:22:54.546] Server  LOG      ✓ Compiled in 371ms
+[01:23:18.803] Server  LOG      ✓ Compiled in 521ms
+[01:23:31.603] Server  LOG      ✓ Compiled in 355ms
+[01:23:40.108] Server  LOG      ✓ Compiled in 402ms
+[01:23:46.025] Server  LOG      ✓ Compiled in 432ms
+[01:24:00.427] Server  LOG      ✓ Compiled in 467ms
+[01:25:17.275] Server  LOG      ✓ Compiled in 175ms
+[01:26:22.223] Server  LOG      ✓ Compiled in 187ms
+[01:26:28.285] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:26:29.143] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:26:58.253] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:26:58.584] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[01:34:27.934] Server  LOG      ✓ Compiled in 1183ms
