@@ -120,27 +120,6 @@ export default function LoadingScreen() {
           </div>
         </div>
       </div>
-
-      {/* Custom slow spin animation */}
-      <style jsx>{`
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 4s linear infinite;
-        }
-        /* Gradient text animation (pastikan kamu punya class ini di global CSS atau tailwind config) */
-        .gradient-animation {
-          background: linear-gradient(90deg, #8b5cf6, #ec4899, #3b82f6, #8b5cf6);
-          background-size: 300% 300%;
-          animation: gradient 8s ease infinite;
-        }
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-      `}</style>
     </div>
   );
 }
