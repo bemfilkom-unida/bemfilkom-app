@@ -2,6 +2,7 @@
   "version": 1,
   "config": {
     "env": {},
+    "webpack": null,
     "typescript": {
       "ignoreBuildErrors": false
     },
@@ -28,9 +29,7 @@
         828,
         1080,
         1200,
-        1920,
-        2048,
-        3840
+        1920
       ],
       "imageSizes": [
         16,
@@ -96,7 +95,7 @@
     "productionBrowserSourceMaps": false,
     "excludeDefaultMomentLocales": true,
     "reactProductionProfiling": false,
-    "reactStrictMode": null,
+    "reactStrictMode": false,
     "reactMaxHeadersLength": 6000,
     "httpAgentOptions": {
       "keepAlive": true
@@ -107,7 +106,7 @@
       "emotion": true
     },
     "expireTime": 31536000,
-    "staticPageGenerationTimeout": 60,
+    "staticPageGenerationTimeout": 1000,
     "modularizeImports": {
       "@mui/icons-material": {
         "transform": "@mui/icons-material/{{member}}"
@@ -223,11 +222,7 @@
       "hideLogsAfterAbort": false,
       "mcpServer": true,
       "optimizePackageImports": [
-        "framer-motion",
         "lucide-react",
-        "@radix-ui/react-dialog",
-        "@radix-ui/react-tabs",
-        "@radix-ui/react-toast",
         "date-fns",
         "lodash-es",
         "ramda",
@@ -309,15 +304,10 @@
     "htmlLimitedBots": "[\\w-]+-Google|Google-[\\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight",
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.js",
+    "serverExternalPackages": [
+      "sharp"
+    ],
     "turbopack": {
-      "rules": {
-        "*.svg": {
-          "loaders": [
-            "@svgr/webpack"
-          ],
-          "as": "*.js"
-        }
-      },
       "root": "/home/ale/Destop/bem-app/bemfilkom-app"
     },
     "distDirRoot": ".next"
