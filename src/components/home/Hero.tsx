@@ -17,8 +17,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full" role="banner">
-      <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+    <section className="relative w-full overflow-hidden" role="banner">
+      <div className="relative w-full">
         <div
           ref={bgRef}
           className="min-h-screen w-full bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-1800 ease-out"
@@ -27,7 +27,7 @@ export default function Hero() {
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-          <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 sm:px-6">
+          <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 max-w-[100vw] mx-auto">
             <div className="w-full max-w-7xl text-center space-y-6 sm:space-y-8 md:space-y-12">
 
               {/* Logo LDKM */}
@@ -131,40 +131,43 @@ function TechMarquee() {
   ];
 
   return (
-    <div className="w-full border-t border-white/10 bg-background/50 backdrop-blur-2xl">
-      <div className="overflow-hidden py-4">
-        {/* Hanya duplikasi 1 kali biar seamless */}
-        <div className="flex animate-fastMarquee">
-          {[...items, ...items].map((text, i) => (
-            <span
-              key={i}
-              className="mx-6 sm:mx-8 inline-flex items-center rounded-full bg-white/10 border border-white/20 px-6 sm:px-8 py-2 text-sm sm:text-base md:text-xl font-bold tracking-wider text-white/80 whitespace-nowrap"
-            >
-              {text}
-            </span>
-          ))}
+    <div className="w-full border-t border-white/10 bg-background/50 backdrop-blur-2xl overflow-hidden">
+      <div className="relative w-full py-4">
+        <div className="w-full overflow-hidden">
+          <div className="flex animate-fastMarquee">
+            {[...items, ...items].map((text, i) => (
+              <span
+                key={i}
+                className="mx-3 sm:mx-4 inline-flex items-center rounded-full bg-white/10 border border-white/20 px-4 sm:px-6 py-1 sm:py-2 text-xs sm:text-sm md:text-base font-bold tracking-wider text-white/80 whitespace-nowrap"
+              >
+                {text}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Custom animation — cepet banget tapi masih enak dilihat */}
       <style jsx>{`
         @keyframes fastMarquee {
-          from {
+          0% {
             transform: translateX(0);
           }
-          to {
+          100% {
             transform: translateX(-50%);
           }
         }
 
         .animate-fastMarquee {
-          animation: fastMarquee 10s linear infinite;
+          display: flex;
+          width: max-content;
+          animation: fastMarquee 20s linear infinite;
           will-change: transform;
         }
 
-        /* Optional: pause saat hover */}
-        .animate-fastMarquee:hover {
-          animation-play-state: paused;
+        @media (max-width: 640px) {
+          .animate-fastMarquee {
+            animation-duration: 15s;
+          }
         }
       `}</style>
     </div>

@@ -4,6 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal scrolling and ensure content stays within viewport */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Ensure all elements stay within their containers */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make sure images and embeds don't overflow */
+img, iframe, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
 @layer utilities {
   .line-clamp-1 {
     overflow: hidden;
@@ -64,7 +85,6 @@
     --accent: 28 75% 62%;
     /* Softer orange */
     --accent-foreground: 0 0% 100%;
-
     --destructive: 6 78% 58%;
     --destructive-foreground: 0 0% 100%;
     --border: 195 40% 42%;

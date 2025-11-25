@@ -1,6 +1,6 @@
 {
   "buildStage": "static-generation",
   "buildOptions": {
-    "useBuildWorker": "false"
+    "useBuildWorker": "true"
   }
 }
