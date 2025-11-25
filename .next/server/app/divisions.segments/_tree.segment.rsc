@@ -5,4 +5,4 @@
 :HL["/logo/logo-bem-footer.png","image"]
 :HL["/logo/logo-ldkm.png","image"]
 :HL["/logo/kpu-filkom.png","image"]
-0:{"buildId":"VX4HE0M7fHPiq-3onChqN","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"divisions","paramType":null,"paramKey":"divisions","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"ln-B7jytoMEvjcymbvpzQ","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"divisions","paramType":null,"paramKey":"divisions","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
