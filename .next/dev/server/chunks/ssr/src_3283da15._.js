@@ -352,10 +352,8 @@ __turbopack_context__.s([
     ()=>LoadingScreen
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@emotion/react/jsx-dev-runtime/dist/emotion-react-jsx-dev-runtime.development.esm.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 'use client';
-;
 ;
 ;
 function LoadingScreen() {
@@ -376,27 +374,27 @@ function LoadingScreen() {
     }, []);
     if (!isLoading) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "jsx-daa551a43b49164d" + " " + "fixed inset-0 z-50 flex items-center justify-center bg-background",
+        className: "fixed inset-0 z-50 flex items-center justify-center bg-background",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-daa551a43b49164d" + " " + "absolute inset-0 overflow-hidden",
+                className: "absolute inset-0 overflow-hidden",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-daa551a43b49164d" + " " + "absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse md:w-96 md:h-96"
+                        className: "absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse md:w-96 md:h-96"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LoadingScreen.tsx",
                         lineNumber: 30,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-daa551a43b49164d" + " " + "absolute -bottom-40 -left-40 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse md:w-96 md:h-96"
+                        className: "absolute -bottom-40 -left-40 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse md:w-96 md:h-96"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LoadingScreen.tsx",
                         lineNumber: 31,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-daa551a43b49164d" + " " + "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse md:w-[500px] md:h-[500px]"
+                        className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse md:w-[500px] md:h-[500px]"
                     }, void 0, false, {
                         fileName: "[project]/src/components/LoadingScreen.tsx",
                         lineNumber: 32,
@@ -409,13 +407,13 @@ function LoadingScreen() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "jsx-daa551a43b49164d" + " " + "relative z-10 flex flex-col items-center space-y-8 px-6",
+                className: "relative z-10 flex flex-col items-center space-y-8 px-6",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-daa551a43b49164d" + " " + "relative",
+                        className: "relative",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl animate-bounce",
+                                className: "w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl animate-bounce",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     viewBox: "0 0 24 24",
                                     fill: "none",
@@ -423,19 +421,17 @@ function LoadingScreen() {
                                     strokeWidth: "2",
                                     strokeLinecap: "round",
                                     strokeLinejoin: "round",
-                                    className: "jsx-daa551a43b49164d" + " " + "w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white",
+                                    className: "w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
-                                            points: "16 18 22 12 16 6",
-                                            className: "jsx-daa551a43b49164d"
+                                            points: "16 18 22 12 16 6"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/LoadingScreen.tsx",
                                             lineNumber: 48,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
-                                            points: "8 6 2 12 8 18",
-                                            className: "jsx-daa551a43b49164d"
+                                            points: "8 6 2 12 8 18"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/LoadingScreen.tsx",
                                             lineNumber: 49,
@@ -453,14 +449,12 @@ function LoadingScreen() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "absolute -top-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 text-primary animate-spin-slow",
+                                className: "absolute -top-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 text-primary animate-spin-slow",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                     viewBox: "0 0 24 24",
                                     fill: "currentColor",
-                                    className: "jsx-daa551a43b49164d",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                        d: "M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m0 2v14h16V5H4",
-                                        className: "jsx-daa551a43b49164d"
+                                        d: "M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m0 2v14h16V5H4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LoadingScreen.tsx",
                                         lineNumber: 56,
@@ -477,21 +471,21 @@ function LoadingScreen() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "absolute -bottom-1 -left-1 w-3 h-3 bg-accent rounded-full animate-ping"
+                                className: "absolute -bottom-1 -left-1 w-3 h-3 bg-accent rounded-full animate-ping"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LoadingScreen.tsx",
                                 lineNumber: 61,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "absolute -top-3 left-3 w-2 h-2 bg-primary rounded-full animate-ping"
+                                className: "absolute -top-3 left-3 w-2 h-2 bg-primary rounded-full animate-ping"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LoadingScreen.tsx",
                                 lineNumber: 62,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "absolute -right-2 bottom-2 w-2 h-2 bg-accent rounded-full animate-ping"
+                                className: "absolute -right-2 bottom-2 w-2 h-2 bg-accent rounded-full animate-ping"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LoadingScreen.tsx",
                                 lineNumber: 63,
@@ -504,13 +498,13 @@ function LoadingScreen() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-daa551a43b49164d" + " " + "text-center space-y-6 max-w-md w-full",
+                        className: "text-center space-y-6 max-w-md w-full",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "space-y-3",
+                                className: "space-y-3",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: "jsx-daa551a43b49164d" + " " + "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-animation bg-clip-text text-transparent",
+                                        className: "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-animation bg-clip-text text-transparent",
                                         children: "BEM FILKOM"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LoadingScreen.tsx",
@@ -518,7 +512,7 @@ function LoadingScreen() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "jsx-daa551a43b49164d" + " " + "text-muted-foreground text-sm sm:text-base md:text-lg",
+                                        className: "text-muted-foreground text-sm sm:text-base md:text-lg",
                                         children: "Kabinet Neogenesis 2025"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LoadingScreen.tsx",
@@ -532,14 +526,14 @@ function LoadingScreen() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto",
+                                className: "w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "jsx-daa551a43b49164d" + " " + "h-2 bg-muted rounded-full overflow-hidden",
+                                    className: "h-2 bg-muted rounded-full overflow-hidden",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "h-full bg-gradient-to-r from-primary to-accent transition-all duration-300 ease-out rounded-full",
                                         style: {
                                             width: `${progress}%`
-                                        },
-                                        className: "jsx-daa551a43b49164d" + " " + "h-full bg-gradient-to-r from-primary to-accent transition-all duration-300 ease-out rounded-full"
+                                        }
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LoadingScreen.tsx",
                                         lineNumber: 80,
@@ -556,7 +550,7 @@ function LoadingScreen() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "jsx-daa551a43b49164d" + " " + "text-sm sm:text-base text-muted-foreground font-mono",
+                                className: "text-sm sm:text-base text-muted-foreground font-mono",
                                 children: [
                                     Math.min(100, Math.round(progress)),
                                     "%"
@@ -567,10 +561,10 @@ function LoadingScreen() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "flex items-center justify-center space-x-2",
+                                className: "flex items-center justify-center space-x-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "jsx-daa551a43b49164d" + " " + "text-xs sm:text-sm text-muted-foreground",
+                                        className: "text-xs sm:text-sm text-muted-foreground",
                                         children: "Initializing"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/LoadingScreen.tsx",
@@ -578,16 +572,16 @@ function LoadingScreen() {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "jsx-daa551a43b49164d" + " " + "flex space-x-1",
+                                        className: "flex space-x-1",
                                         children: [
                                             0,
                                             150,
                                             300
                                         ].map((delay)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-bounce",
                                                 style: {
                                                     animationDelay: `${delay}ms`
-                                                },
-                                                className: "jsx-daa551a43b49164d" + " " + "w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-bounce"
+                                                }
                                             }, delay, false, {
                                                 fileName: "[project]/src/components/LoadingScreen.tsx",
                                                 lineNumber: 97,
@@ -611,10 +605,10 @@ function LoadingScreen() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "jsx-daa551a43b49164d" + " " + "hidden md:block",
+                        className: "hidden md:block",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "absolute top-16 left-8 text-primary/20 text-xs lg:text-sm font-mono animate-pulse",
+                                className: "absolute top-16 left-8 text-primary/20 text-xs lg:text-sm font-mono animate-pulse",
                                 children: [
                                     'const',
                                     " bem = ",
@@ -626,7 +620,7 @@ function LoadingScreen() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "absolute bottom-16 right-8 text-accent/20 text-xs lg:text-sm font-mono animate-pulse",
+                                className: "absolute bottom-16 right-8 text-accent/20 text-xs lg:text-sm font-mono animate-pulse",
                                 children: [
                                     '}',
                                     ";"
@@ -637,7 +631,7 @@ function LoadingScreen() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "absolute top-32 right-12 text-primary/20 text-xs lg:text-sm font-mono animate-pulse",
+                                className: "absolute top-32 right-12 text-primary/20 text-xs lg:text-sm font-mono animate-pulse",
                                 children: "neogenesis: true"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LoadingScreen.tsx",
@@ -645,7 +639,7 @@ function LoadingScreen() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "jsx-daa551a43b49164d" + " " + "absolute bottom-32 left-12 text-accent/20 text-xs lg:text-sm font-mono animate-pulse",
+                                className: "absolute bottom-32 left-12 text-accent/20 text-xs lg:text-sm font-mono animate-pulse",
                                 children: 'function init() {'
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LoadingScreen.tsx",
@@ -663,11 +657,7 @@ function LoadingScreen() {
                 fileName: "[project]/src/components/LoadingScreen.tsx",
                 lineNumber: 35,
                 columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$emotion$2f$react$2f$jsx$2d$dev$2d$runtime$2f$dist$2f$emotion$2d$react$2d$jsx$2d$dev$2d$runtime$2e$development$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                id: "daa551a43b49164d",
-                children: "@keyframes spin-slow{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.animate-spin-slow.jsx-daa551a43b49164d{animation:4s linear infinite spin-slow}.gradient-animation.jsx-daa551a43b49164d{background:linear-gradient(90deg,#8b5cf6,#ec4899,#3b82f6,#8b5cf6) 0 0/300% 300%;animation:8s infinite gradient}@keyframes gradient{0%,to{background-position:0%}50%{background-position:100%}}"
-            }, void 0, false, void 0, this)
+            }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/LoadingScreen.tsx",
