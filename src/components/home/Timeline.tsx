@@ -37,7 +37,7 @@ export default function Timeline({ className }: TimelineProps) {
       image: "/time-line/maba.JPG",
     },
     {
-      date: "Nov 2024",
+      date: "Des 2024",
       title: "Kaderisasi Fakultas Ilmu Komputer",
       desc: "Memberikan wawasan IT serta menumbuhkan awareness dan kesiapan mahasiswa untuk jenjang selanjutnya.",
       image: "/time-line/dekan.webp",
@@ -49,7 +49,7 @@ export default function Timeline({ className }: TimelineProps) {
       image: "/time-line/ldkm1.jpeg",
     },
     {
-      date: "Feb 2025",
+      date: "Jun 2025",
       title: "Pembukaan Pendaftaran BEM FILKOM",
       desc: "Membuka peluang bagi mahasiswa berbakat untuk berkontribusi dalam kemajuan organisasi.",
       image: "/time-line/kpu.jpeg",

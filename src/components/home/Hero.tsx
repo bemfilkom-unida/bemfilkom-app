@@ -117,25 +117,56 @@ export default function Hero() {
     </section>
   );
 }
-
 function TechMarquee() {
   const items = [
-    "Coming Soon LDKM FILKOM 25", "Coming Soon LDKM FILKOM 25", "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25", "Coming Soon LDKM FILKOM 25", "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25", "Coming Soon LDKM FILKOM 25", "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
+    "Coming Soon LDKM FILKOM 25",
   ];
 
   return (
-    <div className="w-full border-t border-white/10 bg-background/40 backdrop-blur-2xl">
-      <div className="overflow-hidden py-4 sm:py-5">
-        <div className="animate-marquee flex items-center gap-8 sm:gap-12 md:gap-16 whitespace-nowrap">
-          {items.concat(items).map((text, i) => (
-            <span key={i} className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold tracking-wider text-white/80 px-4 sm:px-6 py-2 rounded-full bg-white/10 border border-white/20">
+    <div className="w-full border-t border-white/10 bg-background/50 backdrop-blur-2xl">
+      <div className="overflow-hidden py-4">
+        {/* Hanya duplikasi 1 kali biar seamless */}
+        <div className="flex animate-fastMarquee">
+          {[...items, ...items].map((text, i) => (
+            <span
+              key={i}
+              className="mx-6 sm:mx-8 inline-flex items-center rounded-full bg-white/10 border border-white/20 px-6 sm:px-8 py-2 text-sm sm:text-base md:text-xl font-bold tracking-wider text-white/80 whitespace-nowrap"
+            >
               {text}
             </span>
           ))}
         </div>
       </div>
+
+      {/* Custom animation — cepet banget tapi masih enak dilihat */}
+      <style jsx>{`
+        @keyframes fastMarquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-fastMarquee {
+          animation: fastMarquee 10s linear infinite;
+          will-change: transform;
+        }
+
+        /* Optional: pause saat hover */}
+        .animate-fastMarquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
 }
