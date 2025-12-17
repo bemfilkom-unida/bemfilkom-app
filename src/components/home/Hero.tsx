@@ -50,7 +50,7 @@ export default function Hero() {
               <div className="w-full overflow-visible pt-10">
                 <SlideInLeft delay={200}>
                   <BlurText
-                    text="Coming Soon"
+                    text="H-24"
                     className="inline-block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter text-white drop-shadow-2xl leading-[0.9]"
                   />
                 </SlideInLeft>
