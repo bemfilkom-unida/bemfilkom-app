@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useRef } from "react";
 import BlurText from "@/components/effects/BlurText";
 import { FadeIn, SlideInLeft, SlideInRight, RotateIn } from "@/components/effects";
@@ -27,9 +26,9 @@ export default function Hero() {
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
+          {/* Konten utama text */}
           <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 max-w-[100vw] mx-auto">
             <div className="w-full max-w-7xl text-center space-y-6 sm:space-y-8 md:space-y-12">
-
               {/* Logo LDKM */}
               <FadeIn delay={400}>
                 <div className="relative my-8 md:my-12">
@@ -50,7 +49,7 @@ export default function Hero() {
               <div className="w-full overflow-visible pt-10">
                 <SlideInLeft delay={200}>
                   <BlurText
-                    text="Coming Soon"
+                    text="H-7"
                     className="inline-block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter text-white drop-shadow-2xl leading-[0.9]"
                   />
                 </SlideInLeft>
@@ -68,16 +67,16 @@ export default function Hero() {
                 </SlideInRight>
               </div>
 
-              {/* 2025 */}
+              {/* AKT25 */}
               <div className="w-full overflow-visible -mt-2 sm:-mt-4 md:-mt-10">
                 <SlideInRight delay={800}>
                   <div className="inline-block max-w-full">
                     <BlurText
                       text="AKT25"
-                      className="inline-block text-7xl sm:text-9xl md:text-[12rem] lg:text-[14.5rem] xl:text-[16.5rem] 2xl:text-[18rem] 
-                   font-black leading-[0.84] tracking-wider drop-shadow-2xl
-                   gradient-animation bg-clip-text text-transparent
-                   bg-gradient-to-r from-cyan-300 via-teal-400 to-orange-500"
+                      className="inline-block text-7xl sm:text-9xl md:text-[12rem] lg:text-[14.5rem] xl:text-[16.5rem] 2xl:text-[18rem]
+                                     font-black leading-[0.84] tracking-wider drop-shadow-2xl
+                                     gradient-animation bg-clip-text text-transparent
+                                     bg-gradient-to-r from-cyan-300 via-teal-400 to-orange-500"
                     />
                   </div>
                 </SlideInRight>
@@ -89,20 +88,26 @@ export default function Hero() {
                   "Terbentur, Terbentur, Terbentur, Terbentuk!" — Tan Malaka
                 </p>
               </FadeIn>
+            </div>
 
-              {/* SCROLL BUTTON — TEPAT DI BAWAH TAN MALAKA */}
+            {/* SCROLL BUTTON — POSISI ABSOLUTE DI ATAS MARQUEE */}
+            <div className="absolute bottom-28 md:bottom-32 left-1/2 -translate-x-1/2 z-20">
               <RotateIn delay={1200}>
                 <button
                   onClick={() => document.getElementById("main-programs")?.scrollIntoView({ behavior: "smooth" })}
-                  className="mt-8 rounded-full p-3 bg-white/10 backdrop-blur-xl border border-white/30 hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-2xl"
+                  className="rounded-full p-4 bg-white/10 backdrop-blur-xl border border-white/30 hover:bg-white/20 hover:scale-110 transition-all duration-300 shadow-2xl"
                   aria-label="Scroll ke bawah"
                 >
-                  <svg className="w-5 h-5 animate-bounce text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 animate-bounce text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                   </svg>
                 </button>
               </RotateIn>
+            </div>
 
+            {/* TECH MARQUEE DIPINDAH KE DALAM HERO (sebelum glow) */}
+            <div className="absolute bottom-0 left-0 right-0 z-10">
+              <TechMarquee />
             </div>
           </div>
 
@@ -112,22 +117,21 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <TechMarquee />
     </section>
   );
 }
+
 function TechMarquee() {
   const items = [
-    "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25",
-    "Coming Soon LDKM FILKOM 25",
+    "Aetherbyte: into the digital space",
+    "Aetherbyte: into the digital space",
+    "Aetherbyte: into the digital space",
+    "Aetherbyte: into the digital space",
+    "Aetherbyte: into the digital space",
+    "Aetherbyte: into the digital space",
+    "Aetherbyte: into the digital space",
+    "Aetherbyte: into the digital space",
+    "Aetherbyte: into the digital space",
   ];
 
   return (
@@ -146,24 +150,17 @@ function TechMarquee() {
           </div>
         </div>
       </div>
-
       <style jsx>{`
         @keyframes fastMarquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-
         .animate-fastMarquee {
           display: flex;
           width: max-content;
           animation: fastMarquee 20s linear infinite;
           will-change: transform;
         }
-
         @media (max-width: 640px) {
           .animate-fastMarquee {
             animation-duration: 15s;
