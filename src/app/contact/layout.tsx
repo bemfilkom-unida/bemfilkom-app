@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | BEM FILKOM UNIDA",
+  title: "BEM FILKOM UNIDA",
   description: "Hubungi BEM FILKOM UNIDA untuk kolaborasi, informasi, dan pertanyaan.",
 };
 
