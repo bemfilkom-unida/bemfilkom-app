@@ -60,7 +60,7 @@ export default function Hero() {
 
               <SlideInRight delay={600}>
                 <BlurText
-                  text="NEOGENESIS"
+                  text="PLENGERTOPIA"
                   className="inline-block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-2xl leading-tight whitespace-nowrap"
                 />
               </SlideInRight>
