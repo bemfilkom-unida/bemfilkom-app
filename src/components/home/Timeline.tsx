@@ -44,7 +44,7 @@ export default function Timeline({ className }: TimelineProps) {
       image: "/time-line/kaderisasi-2025.webp",
     },
     {
-      date: "Des 2025",
+      date: "Jan 2026",
       title: "LDKM Fakultas Ilmu Komputer",
       desc: "Memberikan pemahaman dasar kepemimpinan serta membentuk sikap mahasiswa yang percaya diri, bertanggung jawab, dan siap berperan aktif dalam kehidupan kemahasiswaan",
       image: "/time-line/ldkm-2025.webp",
