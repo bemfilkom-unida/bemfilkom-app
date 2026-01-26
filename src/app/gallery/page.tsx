@@ -18,7 +18,7 @@ export default function GalleryPage() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <FadeIn delay={0}>
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-                Hasil Karya LDKM 2025
+                Hasil Karya LDKM Angkatan 2025
               </h1>
               <p className="text-xl text-muted-foreground">
                 Showcase hasil inovasi dan kreativitas mahasiswa FILKOM dalam pengembangan teknologi web dan aplikasi.

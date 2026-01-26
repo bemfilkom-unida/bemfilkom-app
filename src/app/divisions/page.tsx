@@ -8,7 +8,7 @@ import {
 } from "@/components/divisions";
 
 export const metadata = {
-  title: "Divisions | BEM FILKOM UNIDA",
+  title: "BEM FILKOM UNIDA",
   description: "Struktur organisasi dan divisi BEM FILKOM UNIDA beserta program unggulannya.",
 };
 
