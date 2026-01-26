@@ -50,7 +50,7 @@ export default function Timeline({ className }: TimelineProps) {
       image: "/time-line/ldkm-2025.webp",
     },
     {
-      date: "Jan 2026",
+      date: "Jun 2025",
       title: "Pembukaan Pendaftaran BEM FILKOM",
       desc: "Membuka peluang bagi mahasiswa untuk menggali potensi diri, meningkatkan kualitas kepemimpinan, dan berkontribusi aktif dalam kemajuan organisasi.",
       image: "/time-line/kpu.webp",
