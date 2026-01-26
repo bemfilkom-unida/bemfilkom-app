@@ -24,15 +24,15 @@
     "loaderFile": "",
     "domains": [],
     "disableStaticImages": false,
-    "minimumCacheTTL": 14400,
+    "minimumCacheTTL": 60,
     "formats": [
       "image/avif",
       "image/webp"
     ],
     "maximumRedirects": 3,
     "dangerouslyAllowLocalIP": false,
-    "dangerouslyAllowSVG": false,
-    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
+    "dangerouslyAllowSVG": true,
+    "contentSecurityPolicy": "default-src 'self'; script-src 'none'; sandbox;",
     "contentDispositionType": "attachment",
     "localPatterns": [
       {
@@ -41,6 +41,11 @@
       }
     ],
     "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "^(?:^(?:placehold\\.co)$)$",
+        "pathname": "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$"
+      },
       {
         "protocol": "https",
         "hostname": "^(?:^(?:drive\\.google\\.com)$)$",
@@ -58,7 +63,8 @@
       }
     ],
     "qualities": [
-      75
+      75,
+      85
     ],
     "unoptimized": false,
     "sizes": [

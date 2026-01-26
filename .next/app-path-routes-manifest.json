@@ -7,5 +7,7 @@
   "/contact/page": "/contact",
   "/divisions/page": "/divisions",
   "/gallery/page": "/gallery",
-  "/page": "/"
+  "/page": "/",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml"
 }

@@ -1,0 +1,58 @@
+[
+    {
+        "title": "NALAR AI",
+        "url": "https://bemfilkom-unida.github.io/Project_Lomba_LDKM-KelompokPHP/",
+        "description": "NALAR.AI merupakan platform pembelajaran berbasis AI yang dirancang untuk membantu siswa belajar secara personal, mudah, dan relevan dalam mendukung kualitas pendidikan di Indonesia.",
+        "image": "/work/Nalar-AI.webp",
+        "author": "Kelompok PHP",
+        "repo": "https://github.com/bemfilkom-unida/Project_Lomba_LDKM-KelompokPHP.git"
+    },
+    {
+        "title": "TessoNilo",
+        "url": "https://bemfilkom-unida.github.io/Kelompok-Go/",
+        "description": "Tesso Nilo Conservation Web merupakan platform informasi lingkungan yang dirancang untuk membantu masyarakat memahami dan menjaga kelestarian hutan Tesso Nilo secara mudah dan berkelanjutan.",
+        "image": "/work/TessoNilo.webp",
+        "author": "Kelompok Go",
+        "repo": "https://github.com/bemfilkom-unida/Kelompok-Go.git"
+    },
+    {
+        "title": "Budaya Nusantara",
+        "url": "https://bemfilkom-unida.github.io/Kelompok-kotlin/",
+        "description": "Website Pengenalan Budaya Indonesia merupakan platform digital yang dirancang untuk membantu pengguna mengenal seni dan budaya Nusantara secara mudah, menarik, dan berbasis teknologi informasi.",
+        "image": "/work/kotlin-web.webp",
+        "author": "Kelompok Kotlin",
+        "repo": "https://github.com/bemfilkom-unida/Kelompok-kotlin.git"
+    },
+    {
+        "title": "PyLearn",
+        "url": "https://bemfilkom-unida.github.io/ldkm25-ruby/",
+        "description": "Website pembelajaran Python ini merupakan platform edukasi interaktif yang dirancang untuk pemula agar dapat memahami dasar pemrograman secara mudah, visual, dan tanpa hambatan teknis seperti instalasi software atau istilah yang kompleks.",
+        "image": "/work/PyLearn.webp",
+        "author": "Kelompok Ruby",
+        "repo": "https://github.com/bemfilkom-unida/ldkm25-ruby.git"
+    },
+    {
+        "title": "Sigap Bencana",
+        "url": "https://bemfilkom-unida.github.io/Website-LDKM-JAVA/",
+        "description": "Website ini merupakan platform kepedulian sosial yang dirancang untuk meningkatkan kesadaran dan partisipasi masyarakat dalam menghadapi bencana di Indonesia secara mudah dan informatif.",
+        "image": "/work/SigapBencana.webp",
+        "author": "Kelompok Java",
+        "repo": "https://github.com/bemfilkom-unida/Website-LDKM-JAVA.git"
+    },
+    {
+        "title": "Menuntut Ilmu",
+        "url": "https://bemfilkom-unida.github.io/KelompokSwift-webldkm/",
+        "description": "Website ini merupakan platform motivasi dan edukasi yang bertujuan menumbuhkan kesadaran akan pentingnya menuntut ilmu serta mendorong setiap individu untuk terus belajar dan berkembang.",
+        "image": "/work/web-swift.webp",
+        "author": "Kelompok Swift",
+        "repo": "https://github.com/bemfilkom-unida/KelompokSwift-webldkm.git"
+    },
+    {
+        "title": "B9 MEDIA",
+        "url": "https://bemfilkom-unida.github.io/Ldkm_Python/",
+        "description": "AI Checker Image merupakan platform analisis gambar yang dirancang untuk membantu pengguna mengenali gambar hasil generative AI secara mudah dan meningkatkan literasi digital.",
+        "image": "/work/web-python.webp",
+        "author": "Kelompok Python",
+        "repo": "https://github.com/bemfilkom-unida/Ldkm_Python.git"
+    }
+]

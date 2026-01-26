@@ -12,6 +12,20 @@ html, body {
   width: 100%;
 }
 
+/* Performance optimizations */
+html {
+  contain: layout style paint;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  contain: layout style;
+  /* Mobile optimizations */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;
+}
+
 /* Ensure all elements stay within their containers */
 * {
   box-sizing: border-box;
@@ -142,136 +156,23 @@ img, iframe, video, canvas, svg {
 
   body {
     @apply bg-background text-foreground;
-    /* Smooth, comfortable gradient dengan tekstur yang soft namun visible */
+    /* Optimized gradient - lebih ringan tapi tetap cantik */
     background-image:
-      /* Strong film grain - visible paper texture */
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.28'/%3E%3C/svg%3E"),
-
-      /* Crosshatch pattern - visible woven texture */
-      repeating-linear-gradient(0deg,
-        transparent 0px,
-        transparent 2px,
-        rgba(107, 200, 226, 0.08) 2px,
-        rgba(107, 200, 226, 0.08) 3px,
-        transparent 3px,
-        transparent 6px),
-      repeating-linear-gradient(90deg,
-        transparent 0px,
-        transparent 2px,
-        rgba(91, 197, 220, 0.07) 2px,
-        rgba(91, 197, 220, 0.07) 3px,
-        transparent 3px,
-        transparent 6px),
-
-      /* Diagonal stripes - clear directional texture */
-      repeating-linear-gradient(45deg,
-        transparent 0px,
-        transparent 35px,
-        rgba(91, 197, 220, 0.14) 35px,
-        rgba(91, 197, 220, 0.14) 38px,
-        transparent 38px,
-        transparent 70px),
-      repeating-linear-gradient(-45deg,
-        transparent 0px,
-        transparent 35px,
-        rgba(75, 180, 210, 0.12) 35px,
-        rgba(75, 180, 210, 0.12) 38px,
-        transparent 38px,
-        transparent 70px),
-
-      /* Contour lines - topographic texture effect */
-      repeating-radial-gradient(circle at 30% 40%,
-        transparent 0px,
-        transparent 45px,
-        rgba(107, 200, 226, 0.06) 45px,
-        rgba(107, 200, 226, 0.06) 47px,
-        transparent 47px,
-        transparent 90px),
-      repeating-radial-gradient(circle at 70% 60%,
-        transparent 0px,
-        transparent 50px,
-        rgba(75, 180, 210, 0.05) 50px,
-        rgba(75, 180, 210, 0.05) 52px,
-        transparent 52px,
-        transparent 100px),
-
-      /* Organic flowing blobs - enhanced depth with texture */
-      radial-gradient(ellipse 1200px 900px at 8% 12%, rgba(107, 200, 226, 0.35), transparent 65%),
-      radial-gradient(ellipse 1000px 800px at 92% 18%, rgba(75, 180, 210, 0.28), transparent 60%),
-      radial-gradient(ellipse 1100px 850px at 12% 88%, rgba(58, 165, 197, 0.32), transparent 62%),
-      radial-gradient(ellipse 950px 750px at 90% 92%, rgba(230, 148, 78, 0.36), transparent 58%),
-
-      /* Enhanced color zones with visible gradation */
-      linear-gradient(165deg,
-        transparent 0%,
-        rgba(107, 200, 226, 0.14) 20%,
-        transparent 35%,
-        rgba(75, 180, 210, 0.11) 50%,
-        transparent 65%,
-        rgba(58, 165, 197, 0.16) 80%,
-        transparent 95%),
-
-
-      /* Gentle vignette - comfortable framing */
+      /* Subtle vignette */
       radial-gradient(ellipse at center,
         transparent 0%,
-        transparent 55%,
-        rgba(22, 65, 90, 0.25) 100%),
+        transparent 60%,
+        rgba(22, 65, 90, 0.2) 100%),
 
-      /* Smooth base gradient - eye-comfortable transitions */
+      /* Simple smooth gradient */
       linear-gradient(138deg,
         #6BC8E2 0%,
-        #5BBDD8 18%,
-        #4DB4D2 32%,
-        #42A8C8 48%,
-        #379CBE 62%,
-        #2D8FB4 76%,
-        #2482AA 88%,
+        #4DB4D2 35%,
+        #379CBE 65%,
         #1C749F 100%);
 
     background-attachment: fixed;
-    background-size:
-      auto,
-      /* grain */
-      200px 200px,
-      /* diagonal waves */
-      200px 200px,
-      100% 100%,
-      /* blobs */
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      /* color zones */
-      100% 100%,
-      /* vignette */
-      100% 100%;
-    /* base gradient */
-
-    /* Very gentle breathing animation */
-    animation: gentleFlow 35s ease-in-out infinite alternate;
-  }
-
-  @keyframes gentleFlow {
-    0% {
-      background-position:
-        0% 0%,
-        0% 0%, 0% 0%,
-        8% 12%, 92% 18%, 12% 88%, 90% 92%,
-        0% 0%,
-        center,
-        0% 0%;
-    }
-
-    100% {
-      background-position:
-        3% 3%,
-        20% 20%, 20% 20%,
-        12% 10%, 88% 20%, 15% 85%, 87% 95%,
-        0% 5%,
-        center,
-        0% 0%;
-    }
+    background-size: 100% 100%, 100% 100%;
   }
 
   /* Comfortable glass morphism cards */
@@ -406,6 +307,35 @@ img, iframe, video, canvas, svg {
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+  }
+
+  /* Mobile scroll optimizations */
+  @media (max-width: 768px) {
+    html {
+      scroll-padding-top: 60px;
+    }
+    
+    /* Optimize touch interactions */
+    button, a, [role="button"] {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+      touch-action: manipulation;
+    }
+    
+    /* Reduce motion for better performance on mobile */
+    @media (prefers-reduced-motion: no-preference) {
+      * {
+        animation-duration: 0.6s !important;
+        transition-duration: 0.3s !important;
+      }
+    }
+    
+    /* Disable animations if user prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
   }
 
   /* Modern reveal animations - trendy effects */

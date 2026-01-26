@@ -1,10 +1,13 @@
+'use client';
+
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/divisions", label: "Structure" },
-  { to: "/gallery", label: "Gallery" },
+  { to: "/gallery", label: "Showup" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -47,31 +50,41 @@ export default function SiteFooter() {
       <div className="container grid gap-8 py-10 md:grid-cols-2 lg:grid-cols-3">
         {/* KOLOM LOGO & DESKRIPSI */}
         <div className="flex flex-col">
-          {/* SEMUA LOGO DIATAS TULISAN */}
+          {/* SEMUA LOGO DIATAS TULISAN – ukuran persis seperti contoh lama */}
           <div className="flex flex-wrap items-center gap-4 mb-4">
-            <img
-              src="/logo/logo-unida.png"
+            <Image
+              src="/logo/logo-unida.webp"
               alt="Logo Universitas Djuanda"
+              width={36}
+              height={36}
               className="h-9 w-auto"
             />
-            <img
-              src="/logo/logo-fakultas.png"
+            <Image
+              src="/logo/filkom-logo.webp"
               alt="Logo Fakultas Ilmu Komputer"
+              width={36}
+              height={36}
               className="size-9 rounded-full object-cover"
             />
-            <img
-              src="/logo/logo-bem-footer.png"
+            <Image
+              src="/logo/bem-footer.webp"
               alt="Logo BEM FILKOM UNIDA"
+              width={36}
+              height={36}
               className="size-9 rounded-full object-cover"
             />
-            <img
-              src="/logo/logo-ldkm.png"
-              alt="Logo LDKM DNSI"
+            <Image
+              src="/logo/ldkm-filkom.webp"
+              alt="Logo LDKM FILKOM"
+              width={48}
+              height={48}
               className="h-12 w-auto"
             />
-            <img
-              src="/logo/kpu-filkom.png"
-              alt="Logo HMJ Informatika UNIDA"
+            <Image
+              src="/logo/logo-kpu.webp"
+              alt="Logo KPU FILKOM"
+              width={40}
+              height={40}
               className="size-10 rounded-lg object-contain bg-white p-1 shadow-sm"
             />
           </div>
@@ -119,9 +132,8 @@ export default function SiteFooter() {
             >
               <SocialIcon type="linkedin" />
             </a>
-            {/* ICON GITHUB BARU */}
             <a
-              href="https://github.com/bemfilkom-unida" // GANTI DENGAN URL REPO KALIAN KALAU ADA
+              href="https://github.com/bemfilkom-unida"
               aria-label="GitHub BEM FILKOM"
               target="_blank"
               rel="noopener noreferrer"

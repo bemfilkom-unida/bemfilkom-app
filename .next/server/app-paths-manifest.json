@@ -7,5 +7,7 @@
   "/contact/page": "app/contact/page.js",
   "/divisions/page": "app/divisions/page.js",
   "/gallery/page": "app/gallery/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
 }

@@ -27,7 +27,7 @@ export default function DivisionTabs({ className }: DivisionTabsProps) {
     { name: "Hilmi Ahmad Kamil", role: "Anggota Divisi", year: "2025" },
     { name: "Muhammad Barez Sapado Siregar", role: "Anggota Divisi", year: "2025" },
     { name: "Muhammad Pratama Rizky", role: "Anggota Divisi", year: "2025" },
-    { name: "Sulis Sri Utami", role: "Anggota Divisi", year: "2025"},
+    { name: "Sulis Sri Utami", role: "Anggota Divisi", year: "2025" },
   ];
 
   const peninfoMembers = [
@@ -55,7 +55,7 @@ export default function DivisionTabs({ className }: DivisionTabsProps) {
               <div className="flex items-center gap-3">
                 <div className="size-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                   <span className="text-sm font-semibold text-primary">
-                    {member.name.split(' ').map(n => n[0]).join('')}
+                    {member.name.split(' ').map((n: string) => n[0]).join('')}
                   </span>
                 </div>
                 <div>
