@@ -47,7 +47,7 @@ export function FadeIn({
   }, [delay, threshold]);
 
   return (
-    <div ref={ref} className={cn('fade-in', className)}>
+    <div ref={ref} className={cn('fade-in will-change-transform', className)}>
       {children}
     </div>
   );
@@ -97,7 +97,7 @@ export function SlideInLeft({
   }, [delay, threshold]);
 
   return (
-    <div ref={ref} className={cn('slide-in-left', className)}>
+    <div ref={ref} className={cn('slide-in-left will-change-transform', className)}>
       {children}
     </div>
   );
@@ -147,7 +147,7 @@ export function SlideInRight({
   }, [delay, threshold]);
 
   return (
-    <div ref={ref} className={cn('slide-in-right', className)}>
+    <div ref={ref} className={cn('slide-in-right will-change-transform', className)}>
       {children}
     </div>
   );
@@ -197,7 +197,7 @@ export function ScaleIn({
   }, [delay, threshold]);
 
   return (
-    <div ref={ref} className={cn('scale-in', className)}>
+    <div ref={ref} className={cn('scale-in will-change-transform', className)}>
       {children}
     </div>
   );
@@ -247,7 +247,7 @@ export function RotateIn({
   }, [delay, threshold]);
 
   return (
-    <div ref={ref} className={cn('rotate-in', className)}>
+    <div ref={ref} className={cn('rotate-in will-change-transform', className)}>
       {children}
     </div>
   );

@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/effects";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 interface TimelineProps {
@@ -33,26 +34,26 @@ export default function Timeline({ className }: TimelineProps) {
     {
       date: "Sep 2025",
       title: "Penyambutan Mahasiswa Baru 2025",
-      desc: "Kegiatan menyambut dan memperkenalkan mahasiswa baru pada lingkungan Fakultas Ilmu Komputer.",
-      image: "/time-line/maba.JPG",
+      desc: "Kegiatan menyambut dan memperkenalkan mahasiswa baru pada lingkungan Fakultas Ilmu Komputer agar dapat beradaptasi dan membangun kebersamaan sejak awal perkuliahan.",
+      image: "/time-line/maba-2025.webp",
     },
     {
-      date: "Des 2024",
+      date: "Des 2025",
       title: "Kaderisasi Fakultas Ilmu Komputer",
-      desc: "Memberikan wawasan IT serta menumbuhkan awareness dan kesiapan mahasiswa untuk jenjang selanjutnya.",
-      image: "/time-line/dekan.webp",
+      desc: "Pengenalan Keorganisasian dan Kepemimpinan Mahasiswa sebagai kegiatan kaderisasi untuk membangun karakter, tanggung jawab, dan jiwa kepemimpinan sejak dini.",
+      image: "/time-line/kaderisasi-2025.webp",
     },
     {
-      date: "Des 2024",
+      date: "Des 2025",
       title: "LDKM Fakultas Ilmu Komputer",
-      desc: "Memberikan pemahaman dasar organisasi serta menumbuhkan kepercayaan diri, tanggung jawab, dan inisiatif mahasiswa dalam berorganisasi.",
-      image: "/time-line/ldkm1.jpeg",
+      desc: "Memberikan pemahaman dasar kepemimpinan serta membentuk sikap mahasiswa yang percaya diri, bertanggung jawab, dan siap berperan aktif dalam kehidupan kemahasiswaan",
+      image: "/time-line/ldkm-2025.webp",
     },
     {
       date: "Jun 2025",
       title: "Pembukaan Pendaftaran BEM FILKOM",
-      desc: "Membuka peluang bagi mahasiswa berbakat untuk berkontribusi dalam kemajuan organisasi.",
-      image: "/time-line/kpu.jpeg",
+      desc: "Membuka peluang bagi mahasiswa untuk menggali potensi diri, meningkatkan kualitas kepemimpinan, dan berkontribusi aktif dalam kemajuan organisasi.",
+      image: "/time-line/kpu.webp",
     },
   ];
 
@@ -96,13 +97,14 @@ export default function Timeline({ className }: TimelineProps) {
             {events.map((event, idx) => (
               <StaggerItem key={idx}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start relative">
-                  <div className="relative z-10 rounded-lg overflow-hidden order-2 md:order-1">
-                    <img
+                  <div className="relative z-10 rounded-lg overflow-hidden order-2 md:order-1 aspect-video bg-muted">
+                    <Image
                       src={event.image}
                       alt={`${event.title} - ${event.date}`}
-                      className="w-full h-40 md:h-64 object-cover"
-                      loading="lazy"
+                      fill
+                      className="object-cover object-bottom"
                       onError={handleImageError}
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                   <div className="bg-card rounded-xl border p-4 md:p-6 space-y-2 order-1 md:order-2">

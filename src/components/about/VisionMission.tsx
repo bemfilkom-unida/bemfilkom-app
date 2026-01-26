@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -25,7 +26,7 @@ export default function VisionMissionAbout({ className }: VisionMissionAboutProp
     {
       name: "Dr. Ir. H. Himmatul Miftah, M.Si., MPM",
       position: "Dekan Fakultas Ilmu Komputer",
-      image: "/about/dekan-filkom.jpeg",
+      image: "/about/dekan-filkom.webp",
       quote: "FILKOM UNIDA merupakan institusi akademik yang berperan dalam pengembangan sumber daya manusia di bidang Teknologi Informasi dan Komunikasi (TIK) berdaya saing global. Fakultas ini mengintegrasikan ilmu pengetahuan, keimanan, dan teknologi untuk menghasilkan lulusan unggul berlandaskan Tauhid dengan kompetensi berstandar internasional.",
       description: "Sejak 2023, FILKOM UNIDA terus beradaptasi dengan perkembangan TIK melalui kurikulum, inovasi, dan riset, serta berkomitmen meningkatkan mutu akademik dan kemitraan internasional untuk mencetak insan TIK berkarakter dan berlandaskan Tauhid.",
     },
@@ -67,9 +68,11 @@ export default function VisionMissionAbout({ className }: VisionMissionAboutProp
               className="flex flex-col md:flex-row items-center gap-8"
             >
               <div className="w-full md:w-1/2">
-                <img
+                <Image
                   src={slides[currentSlide].image}
                   alt={`${slides[currentSlide].name}, ${slides[currentSlide].position}`}
+                  width={600}
+                  height={800}
                   className="w-full h-auto object-contain rounded-lg shadow-md"
                   style={{ aspectRatio: "3/4" }}
                 />

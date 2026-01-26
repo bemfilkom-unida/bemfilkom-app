@@ -1,20 +1,25 @@
 import Layout from '@/components/layout/Layout';
 import {
-    HeroDivisions,
-    ExecutiveBoard,
-    DivisionsSection,
-    DivisionTabs,
-    CallToActionDivisions,
-  } from "@/components/divisions";
+  HeroDivisions,
+  ExecutiveBoard,
+  DivisionsSection,
+  DivisionTabs,
+  CallToActionDivisions,
+} from "@/components/divisions";
 
-  export default function Divisions() {
-    return (
-      <Layout>
-        <HeroDivisions />
-        <ExecutiveBoard />
-        <DivisionsSection />
-        <DivisionTabs />
-        <CallToActionDivisions />
-      </Layout>
-    );
-  }
+export const metadata = {
+  title: "Divisions | BEM FILKOM UNIDA",
+  description: "Struktur organisasi dan divisi BEM FILKOM UNIDA beserta program unggulannya.",
+};
+
+export default function Divisions() {
+  return (
+    <Layout>
+      <HeroDivisions />
+      <ExecutiveBoard />
+      <DivisionsSection />
+      <DivisionTabs />
+      <CallToActionDivisions />
+    </Layout>
+  );
+}

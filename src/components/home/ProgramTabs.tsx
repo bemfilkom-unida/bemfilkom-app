@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -43,82 +44,98 @@ export default function ProgramTabs({ className }: ProgramTabsProps) {
 
   const academicPrograms: Program[] = [
     {
-      title: "Beasiswa LPDP Reguler 2025",
+      title: "Beasiswa LPDP Reguler Tahap 1 2026",
       description:
-        "Beasiswa jenjang magister (S2) dan doktor (S3) untuk Warga Negara Indonesia melalui mekanisme LPDP. Termasuk biaya kuliah, hidup, dan dana darurat, terbuka untuk berbagai bidang studi termasuk IT di dalam dan luar negeri.",
-      duration: "2-4 Years",
-      level: "Postgraduate",
-      url: "https://lpdp.kemenkeu.go.id/en/beasiswa/umum/beasiswa-reguler-2025/",
+        "Beasiswa magister (S2) dan doktor (S3) untuk WNI, full biaya kuliah + hidup + buku + dana penelitian + asuransi. Prioritas bidang STEM termasuk AI, Data Science, Cybersecurity. Dibuka Jan-Feb 2026.",
+      duration: "2–4 Tahun",
+      level: "S2 / S3",
+      url: "https://lpdp.kemenkeu.go.id/beasiswa-reguler-2026/",
     },
     {
-      title: "Beasiswa Garuda 2025",
+      title: "Beasiswa Unggulan Kemendikbudristek 2026",
       description:
-        "Beasiswa bergelar untuk S1 di bidang sains dan teknologi dari Kemdiktisaintek. Fokus pada pengembangan SDM unggul, terbuka untuk mahasiswa Indonesia dengan prioritas kolaborasi riset internasional.",
-      duration: "4 Years",
-      level: "Undergraduate",
-      url: "https://beasiswagaruda.kemdiktisaintek.go.id/",
+        "Beasiswa S1, S2, S3 dalam negeri & luar negeri untuk calon pemimpin bangsa. Fokus riset teknologi & inovasi digital. Termasuk biaya hidup, buku, dan tunjangan penelitian.",
+      duration: "4–5 Tahun (S1), 2–4 Tahun (S2/S3)",
+      level: "S1 / S2 / S3",
+      url: "https://beasiswaunggulan.kemdikbud.go.id/",
     },
     {
-      title: "Beasiswa SEMESTA 2025",
+      title: "Beasiswa SEMESTA Batch 2 2026 – SEVIMA & Kampus Mitra",
       description:
-        "Beasiswa penuh S1 dan S2 di bidang IT dari SEVIMA, bekerja sama dengan ITS Surabaya, BINUS University, dan kampus lain. Termasuk mentoring skill dan gaji bulanan untuk talenta terpilih.",
-      duration: "4 Years (S1)",
-      level: "Undergraduate to Postgraduate",
-      url: "https://sevima.com/beasiswa-semesta-tahun-2025-resmi-dibuka-kuliah-gratis-s1-dan-s2-di-bidang-it/",
+        "Beasiswa full S1/S2 IT & Data Science di ITS, BINUS, Telkom University, dll. Termasuk biaya kuliah, hidup, laptop, mentoring karir, dan gaji magang bulanan.",
+      duration: "4 Tahun (S1), 2 Tahun (S2)",
+      level: "S1 / S2",
+      url: "https://sevima.com/beasiswa-semesta-2026/",
     },
   ];
 
   const techPrograms: Program[] = [
     {
-      title: "Hacktiv8 Full-Stack JavaScript Bootcamp 2025",
+      title: "Belajar Dasar Pemrograman Web - Dicoding",
       description:
-        "Bootcamp intensif full-time selama 16 minggu untuk pemula, fokus full-stack JS dengan AI-enhanced curriculum. Termasuk job guarantee dan placement di perusahaan tech Indonesia.",
-      duration: "16 Weeks",
-      level: "Beginner",
-      url: "https://www.hacktiv8.com/full-stack-javascript-immersive",
+        "Kelas gratis & bersertifikat untuk pemula. Pelajari HTML, CSS, dan JavaScript dasar. Cocok untuk mahasiswa FILKOM yang baru mulai web development.",
+      duration: "Self-paced (~20 jam)",
+      level: "Pemula",
+      url: "https://www.dicoding.com/academies/123",
     },
     {
-      title: "Impact Byte Full-Stack Coding Bootcamp 2025",
+      title: "Menjadi Front-End Web Developer Expert - Dicoding",
       description:
-        "Pelatihan full-time 8 minggu full-stack JS dengan proyek real-world. Fokus karir IT, mentorship dari praktisi, dan dukungan karir untuk penyaluran kerja di industri digital.",
-      duration: "8 Weeks",
-      level: "Beginner",
-      url: "https://impactbyte.com/",
+        "Kelas expert Dicoding dengan proyek real-world (React, Next.js, Tailwind, PWA). Sertifikat resmi + portofolio siap kerja. Banyak alumni diterima di startup besar.",
+      duration: "Self-paced (~120 jam)",
+      level: "Menengah",
+      url: "https://www.dicoding.com/academies/261",
     },
     {
-      title: "DumbWays.id Coding Bootcamp 2025",
+      title: "Belajar Machine Learning untuk Pemula - Dicoding",
       description:
-        "Bootcamp gratis full-stack dan DevOps dengan penyaluran kerja pertama. Bekali skills industri seperti web dev dan mobile, cocok untuk fresh grad dan pemula di seluruh Indonesia.",
-      duration: "8-12 Weeks",
-      level: "Beginner to Intermediate",
-      url: "https://dumbways.id/",
+        "Kelas ML dasar dengan TensorFlow/Keras. Cocok untuk mahasiswa IT yang ingin masuk AI/Data Science. Termasuk proyek prediksi & klasifikasi.",
+      duration: "Self-paced (~40 jam)",
+      level: "Pemula → Menengah",
+      url: "https://www.dicoding.com/academies/184",
+    },
+    {
+      title: "Google IT Support Professional Certificate (via Dicoding)",
+      description:
+        "Sertifikasi internasional Google via Dicoding. Fokus troubleshooting, networking, OS, security. Cocok untuk karir IT Support atau entry-level tech.",
+      duration: "Self-paced (~6 bulan)",
+      level: "Pemula",
+      url: "https://www.dicoding.com/certifications/google-it-support",
+    },
+    {
+      title: "Cloud Practitioner Essentials - Dicoding x AWS",
+      description:
+        "Kelas cloud computing dasar dengan AWS. Pelajari EC2, S3, Lambda, dan konsep cloud. Sertifikat AWS + Dicoding, siap uji coba AWS Cloud Practitioner.",
+      duration: "Self-paced (~30 jam)",
+      level: "Pemula",
+      url: "https://www.dicoding.com/academies/390",
     },
   ];
 
   const communityPrograms: Program[] = [
     {
-      title: "Indonesia Mengglobal Mentorship Program 2025",
+      title: "Indonesia Mengglobal Mentorship Cohort 2026",
       description:
-        "Mentorship gratis 3 bulan untuk calon mahasiswa S2 luar negeri. Bimbingan aplikasi universitas, beasiswa, dan funding dari mentor alumni top global universities.",
-      duration: "3 Months (Sep-Nov 2025)",
-      level: "All Levels",
-      url: "https://indonesiamengglobal.com/mentorship/",
+        "Mentorship 4 bulan gratis untuk aplikasi S2/S3 luar negeri. Bimbingan essay, CV, LoR, dan beasiswa dari mentor alumni Harvard, Stanford, Oxford, dll.",
+      duration: "4 Bulan (Feb–Mei 2026)",
+      level: "Semua Tingkat",
+      url: "https://indonesiamengglobal.com/mentorship-2026/",
     },
     {
-      title: "RISTEK Sisters in Tech Mentorship 2025",
+      title: "RISTEK UI Sisters in Tech Mentorship 2026",
       description:
-        "Program mentorship tech untuk perempuan di bidang STEM, fokus AI, coding, dan networking. Terbuka internasional (ASEAN), dengan career coaching dan portfolio building.",
-      duration: "Ongoing (Main: Jul 2025)",
-      level: "All Levels",
-      url: "https://event.ristek.cs.ui.ac.id/sistech",
+        "Mentorship khusus perempuan di tech (AI, Data, Software Eng). Termasuk career talk, project guidance, dan networking dengan praktisi dari Google, Microsoft, Gojek.",
+      duration: "Ongoing (Batch utama: Mar 2026)",
+      level: "Semua Tingkat",
+      url: "https://ristek.cs.ui.ac.id/sistech",
     },
     {
-      title: "Skill Our Future EdTech Impact Bootcamp 2025",
+      title: "Google for Startups Campus Indonesia – Women in Tech Program 2026",
       description:
-        "Bootcamp komunitas untuk digital skills dan youth entrepreneurship dari UNDP. Fokus underserved groups, termasuk mentorship dari industry experts dan kolaborasi ekosistem.",
-      duration: "Varies (Grants until Nov 2025)",
-      level: "All Levels",
-      url: "https://www2.fundsforngos.org/community-development-2/skill-our-future-edtech-impact-bootcamp-2025-indonesia/",
+        "Program komunitas + mentorship untuk perempuan di startup/tech. Termasuk workshop AI, cloud, leadership, dan akses ke Google Cloud Credits + funding pitch.",
+      duration: "6–12 Bulan",
+      level: "Semua Tingkat",
+      url: "https://startup.google.com/programs/campus/indonesia/",
     },
   ];
 
@@ -142,13 +159,13 @@ export default function ProgramTabs({ className }: ProgramTabsProps) {
         <Reveal key={`${program.title}-${index}`} y={10} delay={index * 50}>
           <Card className="hover:shadow-md transition-shadow">
             <CardContent className="p-6">
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg">{program.title}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">
+                  <p className="text-muted-foreground text-sm mt-1 leading-relaxed">
                     {program.description}
                   </p>
-                  <div className="flex gap-2 mt-3">
+                  <div className="flex flex-wrap gap-2 mt-3">
                     <Badge variant="outline" className="text-xs">
                       {program.duration}
                     </Badge>
@@ -161,15 +178,15 @@ export default function ProgramTabs({ className }: ProgramTabsProps) {
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="hover:bg-primary/5 hover:text-primary transition-colors"
+                  className="hover:bg-primary/5 hover:text-primary transition-colors shrink-0"
                 >
                   <a
                     href={program.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Daftar untuk program ${program.title} di situs resmi`}
+                    aria-label={`Daftar untuk ${program.title}`}
                   >
-                    Register
+                    Daftar
                   </a>
                 </Button>
               </div>
@@ -178,8 +195,8 @@ export default function ProgramTabs({ className }: ProgramTabsProps) {
         </Reveal>
       ))}
       {filterPrograms(programs).length === 0 && (
-        <p className="text-center text-muted-foreground mt-4">
-          No programs match your search. Try another keyword.
+        <p className="text-center text-muted-foreground mt-8 py-8">
+          Tidak ada program yang cocok dengan pencarian. Coba kata kunci lain.
         </p>
       )}
     </div>
@@ -191,39 +208,39 @@ export default function ProgramTabs({ className }: ProgramTabsProps) {
         <div className="text-center mb-12">
           <Reveal y={16}>
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-              INFO PROGRAM
+              INFO PROGRAM 2026
             </h2>
           </Reveal>
           <Reveal y={16} delay={100}>
             <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
-              Informasi mengenai beasiswa, bootcamp, pelatihan, dan berbagai
-              peluang pengembangan diri di bidang IT dan teknologi. Dengan ini, siapa pun dapat
-              terus mengikuti update terkini untuk mendukung prestasi dan karier
-              di masa depan.
+              Update terkini beasiswa, bootcamp, pelatihan, dan peluang pengembangan diri di bidang IT & teknologi. Ikuti terus untuk mendukung karier dan prestasi masa depanmu.
             </p>
           </Reveal>
         </div>
+
         <Tabs defaultValue="academic" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-3 mb-6">
             <TabsTrigger value="academic">Academic</TabsTrigger>
             <TabsTrigger value="technology">Technology</TabsTrigger>
             <TabsTrigger value="community">Community</TabsTrigger>
           </TabsList>
-          <div className="mt-6">
-            <Input
-              placeholder="Search programs..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="max-w-md mx-auto mb-6"
-            />
-          </div>
-          <TabsContent value="academic" className="mt-8">
+
+          <Input
+            id="program-search"
+            name="program-search"
+            placeholder="Cari program..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="max-w-md mx-auto mb-8"
+          />
+
+          <TabsContent value="academic">
             <ProgramList programs={tabData.academic} category="academic" />
           </TabsContent>
-          <TabsContent value="technology" className="mt-8">
+          <TabsContent value="technology">
             <ProgramList programs={tabData.technology} category="technology" />
           </TabsContent>
-          <TabsContent value="community" className="mt-8">
+          <TabsContent value="community">
             <ProgramList programs={tabData.community} category="community" />
           </TabsContent>
         </Tabs>
