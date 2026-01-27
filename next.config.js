@@ -7,7 +7,7 @@ const nextConfig = {
 
   images: {
     formats: ['image/avif', 'image/webp'],
-    qualities: [75, 85],
+    qualities: [65, 70, 75, 85],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
@@ -53,7 +53,16 @@ const nextConfig = {
       'lucide-react',
       '@radix-ui/react-dialog',
       '@radix-ui/react-tabs',
+      '@radix-ui/react-slot',
+      '@radix-ui/react-separator',
+      '@radix-ui/react-switch',
+      '@radix-ui/react-label',
+      '@radix-ui/react-toast',
+      '@radix-ui/react-alert-dialog',
+      '@radix-ui/react-checkbox',
+      'sonner',
     ],
+    scrollRestoration: true,
   },
 
   // Headers for caching

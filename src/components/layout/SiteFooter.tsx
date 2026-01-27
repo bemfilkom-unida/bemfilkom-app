@@ -74,7 +74,7 @@ export default function SiteFooter() {
               className="size-9 rounded-full object-cover"
             />
             <Image
-              src="/logo/ldkm-filkom.webp"
+               src="/logo/ldkm-filkom.webp"
               alt="Logo LDKM FILKOM"
               width={48}
               height={48}
@@ -86,6 +86,7 @@ export default function SiteFooter() {
               width={40}
               height={40}
               className="size-10 rounded-lg object-contain bg-white p-1 shadow-sm"
+              loading="lazy"
             />
           </div>
           {/* Teks di bawah logo */}

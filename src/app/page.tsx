@@ -23,28 +23,10 @@ export default function HomePage() {
   const [showLoading, setShowLoading] = useState(false);
 
   useEffect(() => {
-    // Check if user has already seen loading screen in this session
-    const hasSeenLoading = sessionStorage.getItem('hasSeenLoadingScreen');
-
-    // Only show loading screen once per session
-    if (!hasSeenLoading) {
-      setShowLoading(true);
-      document.body.classList.add('loading-active');
-
-      // Show loading screen for 600ms (reduced from 800ms)
-      const timer = setTimeout(() => {
-        setShowLoading(false);
-        document.body.classList.remove('loading-active');
-        // Mark as seen
-        sessionStorage.setItem('hasSeenLoadingScreen', 'true');
-      }, 600);
-
-      // Cleanup timer on unmount
-      return () => {
-        clearTimeout(timer);
-        document.body.classList.remove('loading-active');
-      };
-    }
+    // IMPORTANT: Never show loading screen on first page load
+    // This delays LCP significantly. Only show on client-side navigation.
+    // LoadingScreen is disabled to optimize Core Web Vitals (LCP < 2.5s)
+    setShowLoading(false);
   }, []);
 
   return (
