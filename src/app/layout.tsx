@@ -25,7 +25,6 @@ export const metadata: Metadata = {
     ],
     apple: '/logo/icon-bem.png',
   },
-  manifest: '/manifest.json',
   openGraph: {
     title: 'BEM FILKOM UNIDA',
     description: 'Badan Eksekutif Mahasiswa Fakultas Ilmu Komputer Universitas Djuanda',
