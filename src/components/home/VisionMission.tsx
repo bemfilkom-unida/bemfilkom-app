@@ -82,18 +82,14 @@ export default function VisionMission({ className }: VisionMissionProps) {
                   Misi
                 </h3>
               </div>
-              <StaggerContainer delay={100}>
-                <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
-                  {missionPoints.map((point, idx) => (
-                    <StaggerItem key={idx}>
-                      <li className="flex gap-2 transform transition-all duration-300 hover:translate-x-2">
-                        <span className="text-primary animate-pulse">•</span>
-                        <span>{point}</span>
-                      </li>
-                    </StaggerItem>
-                  ))}
-                </ul>
-              </StaggerContainer>
+              <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
+                {missionPoints.map((point, idx) => (
+                  <li key={idx} className="flex gap-2 transform transition-all duration-300 hover:translate-x-2">
+                    <span className="text-primary animate-pulse">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </SlideInRight>
         </div>

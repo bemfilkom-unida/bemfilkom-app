@@ -74,10 +74,10 @@ export function SiteHeader() {
             src="/logo/header-bem.webp"
             alt="BEM FILKOM"
             width={36}
-            height={36}
+            height={44}
             priority
             className="shrink-0"
-            style={{ width: 36, height: 36 }}
+            style={{ width: 36, height: 44 }}
           />
           <div className="flex flex-col leading-none">
             <span className="font-extrabold tracking-tighter">BEM FILKOM</span>
@@ -111,7 +111,7 @@ export function SiteHeader() {
 
         {/* Right Side: Hanya Store Button (desktop) */}
         <div className="hidden md:flex items-center gap-4">
-          <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium">
+          <Button asChild className="bg-accent hover:bg-accent/80 text-white font-medium">
             <a
               href="https://www.instagram.com/filkomstore"
               target="_blank"
@@ -131,6 +131,8 @@ export function SiteHeader() {
             "md:hidden p-2 rounded-lg border transition",
             isMobileMenuOpen ? "bg-secondary/30" : "bg-background/50"
           )}
+          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>

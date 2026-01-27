@@ -18,35 +18,39 @@ export default function ParallaxEffect({
 }: ParallaxEffectProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const rafId = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!ref.current) return;
-
-      const rect = ref.current.getBoundingClientRect();
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -speed;
-
-      // Calculate parallax based on direction
-      let xOffset = 0;
-      let yOffset = 0;
-
-      switch (direction) {
-        case 'up':
-          yOffset = rate;
-          break;
-        case 'down':
-          yOffset = -rate;
-          break;
-        case 'left':
-          xOffset = rate;
-          break;
-        case 'right':
-          xOffset = -rate;
-          break;
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
       }
 
-      setOffset({ x: xOffset, y: yOffset });
+      rafId.current = requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -speed;
+
+        // Calculate parallax based on direction
+        let xOffset = 0;
+        let yOffset = 0;
+
+        switch (direction) {
+          case 'up':
+            yOffset = rate;
+            break;
+          case 'down':
+            yOffset = -rate;
+            break;
+          case 'left':
+            xOffset = rate;
+            break;
+          case 'right':
+            xOffset = -rate;
+            break;
+        }
+
+        setOffset({ x: xOffset, y: yOffset });
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -54,6 +58,9 @@ export default function ParallaxEffect({
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
+      }
     };
   }, [speed, direction]);
 

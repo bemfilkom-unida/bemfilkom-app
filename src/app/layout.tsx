@@ -2,13 +2,16 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import SiteHeader from "@/components/layout/SiteHeader";
+import ScrollToTop from "@/components/layout/ScrollToTop";
+import StickySidebar from "@/components/layout/StickySidebar";
 
-// Optimize font loading with display swap and preload
+// Optimize font loading with display swap strategy
 const inter = Inter({ 
   subsets: ["latin"],
   display: 'swap',
   variable: '--font-inter',
-  preload: true,
+  preload: false,
   fallback: ['system-ui', 'arial'],
 });
 
@@ -19,7 +22,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/logo/icon-bem.svg', type: 'image/svg+xml' },
-      { url: '/logo/favicon.ico', sizes: 'any' }
     ],
     apple: '/logo/icon-bem.png',
   },
@@ -51,14 +53,11 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  minimumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
   themeColor: '#1E40AF',
 };
-
-import SiteHeader from "@/components/layout/SiteHeader";
-import ScrollToTop from "@/components/layout/ScrollToTop";
-import StickySidebar from "@/components/layout/StickySidebar";
 
 export default function RootLayout({
   children,
@@ -68,10 +67,9 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning className={inter.variable} data-scroll-behavior="smooth">
       <head>
+        {/* Preconnect to Google Fonts origins for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body className={`font-sans antialiased ${inter.className}`}>
         <ErrorBoundary>

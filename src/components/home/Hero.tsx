@@ -22,12 +22,14 @@ export default function Hero() {
               src={KAB_PHOTO}
               alt="Kabinet Neogenesis 2025"
               fill
-              loading="eager"
-              quality={75}
+              priority
+              quality={65}
               sizes="100vw"
-              className={`object-cover object-center transition-opacity duration-1000 ease-out ${
+              fetchPriority="high"
+              loading="eager"
+              className={`object-cover object-center ${
                 imageLoaded ? "opacity-100" : "opacity-0"
-              }`}
+              } transition-opacity duration-1000 ease-out`}
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageError(true)}
             />
