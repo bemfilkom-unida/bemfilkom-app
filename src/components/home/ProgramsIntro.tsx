@@ -46,8 +46,7 @@ export default function ProgramsIntro({ className }: ProgramsIntroProps) {
           </FadeIn>
         </div>
 
-        {/* Kamu bisa tambahkan konten lain di sini nanti kalau mau, misal paragraf deskripsi, gambar, atau call-to-action */}
-        {/* Contoh placeholder sementara: */}
+    
         
 
         <div className="mt-12 pt-8 border-t border-muted/30" />
