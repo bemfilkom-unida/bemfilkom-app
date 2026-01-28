@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import BlurText from "@/components/effects/BlurText";
 import { SlideInLeft, SlideInRight } from "@/components/effects";
-import { Reveal } from "@/components/effects"; // pastikan Reveal sudah di-import
+import { Reveal } from "@/components/effects"; 
 
 const KAB_PHOTO = "/kabinet25.webp";
 
@@ -15,7 +15,7 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden" role="banner">
       <div className="relative w-full min-h-screen">
-        {/* Background Image dengan Next.js Image */}
+        {/*  */}
         <div className="absolute inset-0 min-h-screen">
           {!imageError ? (
             <Image
@@ -38,20 +38,20 @@ export default function Hero() {
           )}
         </div>
 
-        {/* Gradient overlay (transisi bawah) */}
+        {/*  */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none z-10" />
 
         {/* Konten teks */}
         <div className="relative z-20 flex min-h-screen flex-col items-center justify-start pt-16 md:pt-20 lg:pt-24 px-4 sm:px-6 text-center">
           <div className="mt-4 md:mt-8 w-full max-w-5xl space-y-6 md:space-y-8">
-            {/* Badge "Tentang BEM FILKOM" di atas */}
+            {/*  */}
             <Reveal y={10} delay={50}>
               <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-foreground/70 bg-background/60 backdrop-blur">
                 <span className="size-2 rounded-full bg-primary" /> BEM FILKOM Universitas Djuanda
               </div>
             </Reveal>
 
-            {/* Teks utama KABINET NEOGENESIS */}
+            {/*  */}
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-center gap-3 md:gap-6">
               <SlideInLeft delay={300}>
                 <BlurText
